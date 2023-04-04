@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/table.css"
 
-const Table = () => {
+const Table = ({ equipo }) => { //usamos el mismo promp que es TablePage 
 
     return (
         <div id="main-container">
@@ -17,22 +17,16 @@ const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Laptop</td>
-                        <td>Samsung</td>
-                        <td>Sam2014</td>
-                        <td>ey56fh</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Laptop</td>
-                        <td>HP</td>
-                        <td>Sam20178</td>
-                        <td>ey56fYGh</td>
-                        <td>1</td>
-                    </tr>
+                    {equipo.map(e => (
+                        <tr>
+                            <td>{e.idDevice}</td>
+                            <td>{e.deviceType}</td>
+                            <td>{e.deviceBrand}</td>
+                            <td>{e.deviceModel}</td>
+                            <td>{e.serialNumber}</td>
+                            <td>{e.fkIdUser}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

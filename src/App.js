@@ -11,15 +11,10 @@ const App = () => {
         <BrowserRouter>
             <Routes>
 
-                <Route path ='/' element={<LandingPage/>}>                    
-                    </Route>
-                <Route path ='/RegistroPage' element={<RegistroPage/>}> 
-                    </Route>
-                <Route path ='/UserPage' element={<UserPage/>}>
-                    </Route>
-                <Route path ='/TablePage' element={<TablePage/>}>
-                    </Route>
-
+                <Route path ='/' element={<LandingPage/>}> </Route>
+                <Route path ='/RegistroPage' element={<RegistroPage/>}> </Route>
+                <Route path ='/UserPage' element={<UserPage/>}> </Route>
+                <Route path ='/TablePage' element={<TablePage/>}> </Route>
 
             </Routes>
         </BrowserRouter>
