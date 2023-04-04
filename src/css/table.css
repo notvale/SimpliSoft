@@ -1,0 +1,39 @@
+#main-container{
+    margin: 150px auto;
+    width: 600px;
+
+}
+
+table{
+    background-color: rgb(235, 234, 231);
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%; /* Para que ocupe el 100% del ancho del contenedor*/
+    margin: 0;
+    padding: 0;
+}
+
+th,td {
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+thead{
+    background-color: rgb(255, 108, 3);
+    border-bottom: solid 5px;
+}
+/* Esto colorea las filas impares*/
+tr:nth-child(even){
+    background-color: white;
+   
+}
+
+tbody tr:hover {
+    background-color: rgb(207, 237, 12);
+    cursor: pointer;
+}
+
+/* tbody td:hover {
+    background-color: rgb(54, 60, 17);
+    cursor: pointer;
+} */
