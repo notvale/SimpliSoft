@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/table.css"
 
-const Table = ({ equipo }) => { //usamos el mismo promp que es TablePage 
+const Table = ({ device, deviceDeletePage }) => { //usamos el mismo promp que es TablePage 
 
     return (
         <div id="main-container">
@@ -14,10 +14,12 @@ const Table = ({ equipo }) => { //usamos el mismo promp que es TablePage
                         <th>Modelo</th>
                         <th>N° de Serie</th>
                         <th>ID Usuario</th>
+                        <th> Acciones </th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    {equipo.map(e => (
+                    {device.map(e => (
                         <tr>
                             <td>{e.idDevice}</td>
                             <td>{e.deviceType}</td>
@@ -25,6 +27,10 @@ const Table = ({ equipo }) => { //usamos el mismo promp que es TablePage
                             <td>{e.deviceModel}</td>
                             <td>{e.serialNumber}</td>
                             <td>{e.fkIdUser}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning">Editar</button>
+                                <button type="button" class="btn btn-danger" onClick={() =>deviceDeletePage(e.idDevice)}>Eliminar</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
