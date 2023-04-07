@@ -2,23 +2,15 @@ import React from "react";
 import "../css/formulario.css"
 import { useEffect, useState } from 'react';
 
-const usernameInit = {
-    "nombre":""
-}
-
 const Buscador = ( {numberOfDevicesByUsernamePage ,findAllDevicesByUsernamePage} ) => {
-    const [username, setUsername] = useState(usernameInit);
-    const {nombre} = username;
-
-    const handleInputChange = (e) => {
-        console.log(e);
-        const handleFormValue = {
-            username,
-            [e.target.name]: e.target.value,
-        }
-        setUsername(handleFormValue)
-        console.log(username);
-    }
+    const [username, setUsername] = useState('');
+    
+    
+    const manejarCambio = (evento) => {
+        setUsername(evento.target.value);
+        numberOfDevicesByUsernamePage(username);
+        findAllDevicesByUsernamePage(username);
+      };
 
     return (
         <form className="row">
@@ -27,11 +19,8 @@ const Buscador = ( {numberOfDevicesByUsernamePage ,findAllDevicesByUsernamePage}
                     placeholder="Ingresa nombre" 
                     className="form-input" 
                     id="nombre"
-                    name="nombre"
-                    value={nombre}
-                    onChange={handleInputChange}                        
+                    onInput={manejarCambio}                     
             />
-            <button class="btn btn-primary" type="button" onClick={()=>{numberOfDevicesByUsernamePage(username.nombre); findAllDevicesByUsernamePage(username.nombre)}} > Buscar </button>
         </form>
 
 
