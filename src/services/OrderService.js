@@ -2,7 +2,7 @@ import axios from "axios"; // Se importa para poder consumir APIs
 const baseURL = 'http://localhost:8080';
 
 
-// 5- GET: Retorna cantidad de tickets totales
+// 5- GET: Retorna cantidad de Ordenes totales
 const numberOfOrdersService = async () => {
     const rest = await axios.get(baseURL + '/order/total');
     console.log("cantidad de Ordenes");

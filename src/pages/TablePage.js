@@ -17,6 +17,8 @@ const TablePage = () => {
     const [device, setDevice] = useState([]);
     // DEVICE: useState para N° de Device
     const [numberDevice, setNumberDevice] = useState(0);
+    // DEVICE: useState para mostrar los equipos de un usuario
+    const [deviceByUser, setDeviceByUser] = useState({});
     // DEVICE: useState para N° de equipos por usuario
     const [totalByUser, setTotalByUser] = useState(0);
     // DEVICE: useState para editar equipo
@@ -25,29 +27,35 @@ const TablePage = () => {
     const [numberTicket, setNumberTicket] = useState(0);
     // ORDER: 
     const [numberOrder,setNumberOrder] = useState(0);
-    //-----------------------------
+    //--------------------------------------------
     // Funciones para los Devices
-    //-----------------------------
-    // DEVICE: Función retorna todos los equipos
+    //--------------------------------------------
+    // DEVICE: Función retorna TODOS los equipos
     const deviceFindAllPage = async () => {
         setDevice(await deviceFindAllService());
         numberOfDevicesPage();
         numberOfDevicesByUsernamePage();
         numberOfTicketsPage();
         numberOfOrdersPage();
+        findAllDevicesByUsernamePage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
     const numberOfDevicesPage = async () => {
         setNumberDevice(await numberOfDevicesService());
     }
+    // DEVICE: Retorna todos los equipos asociados a un username
+    const findAllDevicesByUsernamePage = async (username) =>{
+        setDeviceByUser(await findAllDevicesByUsernameService(username));
+        console.log('Equipos por usuario ' + username)
+    }
 
     // DEVICE: Función que retorna N° de equipos por usuario
     const numberOfDevicesByUsernamePage = async (username) => {
         setTotalByUser(await numberOfDevicesByUsernameService(username));
-        console.log('cantidad de dispositivos por nombrePage' + totalByUser);
+        console.log('cantidad de dispositivos por nombrePage ' + totalByUser);
     }
-    // DEVICE: Función ingresar/registrar Equipo a la BD
+    // DEVICE: Función para ingresar/registrar Equipo a la BD
     const deviceRegisterPage = async (device) => {
         await deviceRegisterService(device);
         deviceFindAllPage();
@@ -57,14 +65,14 @@ const TablePage = () => {
         await deviceUpdateService();
         deviceFindAllPage();
     }
-    //DEVICE: Función para Eliminar/Borrar un equipo
+    // DEVICE: Función para Eliminar/Borrar un equipo
     const deviceDeletePage = async (id) => {
         await deviceDeleteService(id);
         deviceFindAllPage();
     }
-    //-----------------------------
+    //----------------------------------------------------
     // Funciones para los Tickets
-    //-----------------------------
+    //---------------------------------------------------
     // TICKET: Funcion que retorna la cantidad TICKETS totales
     const numberOfTicketsPage = async () => {
         setNumberTicket(await numberOfTicketsService());
@@ -100,10 +108,10 @@ const TablePage = () => {
             <Contador numberDevice={totalByUser} nom_variable={'Equipos por nombre'} />
 
 
-            <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage}/>
+            <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} />
             
             <div>
-                <Table device={device} deviceDeletePage={deviceDeletePage} />
+                <Table device = {Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
             </div>
             <div>
                 <Formulario deviceRegisterPage={deviceRegisterPage} />

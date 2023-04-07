@@ -56,12 +56,14 @@ const numberOfDevicesByUsernameService = async (username) => {
     return rest.data
 }
 
-// 7- GET: Métod que retorna todos los equipos asociados a un username
+// 7- GET: Retorna todos los equipos asociados a un username
 const findAllDevicesByUsernameService = async (username) => {
     const rest = await axios.get(baseURL + '/device/' + username);
     console.log(rest);
     return rest.data
 }
+
+
 
 export {
     deviceFindAllService, deviceRegisterService, deviceUpdateService, deviceDeleteService, findAllDevicesByUsernameService,

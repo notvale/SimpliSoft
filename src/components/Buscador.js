@@ -6,7 +6,7 @@ const usernameInit = {
     "nombre":""
 }
 
-const Buscador = ( {numberOfDevicesByUsernamePage} ) => {
+const Buscador = ( {numberOfDevicesByUsernamePage ,findAllDevicesByUsernamePage} ) => {
     const [username, setUsername] = useState(usernameInit);
     const {nombre} = username;
 
@@ -31,7 +31,7 @@ const Buscador = ( {numberOfDevicesByUsernamePage} ) => {
                     value={nombre}
                     onChange={handleInputChange}                        
             />
-            <button class="btn btn-primary" type="button" onClick={()=>numberOfDevicesByUsernamePage(username.nombre)} > Buscar </button>
+            <button class="btn btn-primary" type="button" onClick={()=>{numberOfDevicesByUsernamePage(username.nombre); findAllDevicesByUsernamePage(username.nombre)}} > Buscar </button>
         </form>
 
 
