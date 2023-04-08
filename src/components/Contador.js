@@ -4,13 +4,13 @@ const Contador = ({ numberDevice, nom_variable }) => {
     return (
 
         <div className="contador">
-            <div>
-
-                <h6>{nom_variable}</h6>
+            <div className="titulo">
+                {nom_variable}
             </div>
-            {numberDevice}
+            <div className="cantidad">
+                {numberDevice}
+            </div>
         </div>
-
 
 
 

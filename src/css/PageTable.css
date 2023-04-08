@@ -1,0 +1,65 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+main{
+    background-color: wheat;
+    height: 750px;
+    width: 1500px;
+    
+}
+
+header{
+    height: 50px;
+    width: 1300px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#ladoDerecho{
+    height: 750px;
+    width: 1300px;
+    /* background: rgb(35, 66, 19); */
+    float: right; /**Para ubicar el lado derecho a la derecha*/
+}
+#ladoIzquierdo{
+    height: 750px;
+    width: 200px;
+    background: rgb(40, 148, 30);
+    display: inline-block; /*Para que el lado derecho quede en linea*/
+   
+}
+#tarjetas{
+    height: 150px;
+    width: 1300px;
+    background: whitesmoke;
+    display: flexbox;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+#tablas{
+    height: 550px;
+    width: 1000px;
+    background-color: blue;
+    display: inline-block;
+    
+}
+#tablaForm{
+    height: 550px;
+    width: 1300px;
+    background-color: blueviolet;  
+    text-align: center; 
+}
+#formularios{
+    height: 550px;
+    width: 300px;
+    background-color: yellow;
+    float: right;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

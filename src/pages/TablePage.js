@@ -6,16 +6,18 @@ import Formulario from '../components/Formulario';
 import Buscador from '../components/Buscador';
 import {
     deviceFindAllService, deviceRegisterService, deviceUpdateService, deviceDeleteService, findAllDevicesByUsernameService,
-    numberOfDevicesService, numberOfDevicesByUsernameService } from '../services/DeviceService';
+    numberOfDevicesService, numberOfDevicesByUsernameService
+} from '../services/DeviceService';
 import { numberOfTicketsService } from '../services/TicketService';
-import {numberOfOrdersService} from '../services/OrderService';
-import {UserstByRoleService, numberOfUsersService} from '../services/UserService';
+import { numberOfOrdersService, registerOrderService } from '../services/OrderService';
+import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService } from '../services/UserService';
+import "../css/PageTable.css"
 
 const TablePage = () => {
     /*
         Declaración de useState
     */
-    // DEVICE: useState para DEVICE
+    // DEVICE: useState para registrar DEVICE
     const [device, setDevice] = useState([]);
     // DEVICE: useState para N° de Device
     const [numberDevice, setNumberDevice] = useState(0);
@@ -28,11 +30,13 @@ const TablePage = () => {
     // TICKET: useState para N° de Ticket
     const [numberTicket, setNumberTicket] = useState(0);
     // ORDER: useState para N° de Ordenes
-    const [numberOrder,setNumberOrder] = useState(0);
+    const [numberOrder, setNumberOrder] = useState(0);
     // USER: useState para mostrar a los usuarios segun su role
     const [userByRole, setUserByRole] = useState({});
     // USER: useState para N° de usuarios totales
     const [numberOfUsers, setNumberOfUsers] = useState(0);
+    // USER: useState para N° de usuarios por Role
+    const [totalByRole, setTotalByRole] = useState(0);
     //--------------------------------------------
     // Funciones para los Devices
     //--------------------------------------------
@@ -46,6 +50,7 @@ const TablePage = () => {
         findAllDevicesByUsernamePage();
         UserstByRolePage();
         numberOfUsersPage();
+        numberOfUserstByRolePage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -53,7 +58,7 @@ const TablePage = () => {
         setNumberDevice(await numberOfDevicesService());
     }
     // DEVICE: Retorna todos los equipos asociados a un username
-    const findAllDevicesByUsernamePage = async (username) =>{
+    const findAllDevicesByUsernamePage = async (username) => {
         setDeviceByUser(await findAllDevicesByUsernameService(username));
         console.log('Equipos por usuario ' + username)
     }
@@ -105,12 +110,17 @@ const TablePage = () => {
         console.log('Usuarios por rolePage: ' + userByRole);
     }
     // USER: Retorna el °N de usuarios totales
-    const numberOfUsersPage = async () =>{
+    const numberOfUsersPage = async () => {
         setNumberOfUsers(await numberOfUsersService());
         console.log('Total de usersPage: ' + numberOfUsers);
 
     }
+    // USER: Retorna el °N de usuarios por Role
+    const numberOfUserstByRolePage = async () => {
+        setTotalByRole(await numberOfUserstByRoleService());
+        console.log('N°RolePage: ' + totalByRole);
 
+    }
 
     /* UseEffect:
      Se activa cuando se recarga la página o
@@ -125,25 +135,62 @@ const TablePage = () => {
     }, []);
 
     return (
-        <div>
-            <Contador numberDevice={numberDevice} nom_variable={'Equipos Totales: '} />
-            <Contador numberDevice={numberTicket} nom_variable={'Tickes Totales: '} />
-            <Contador numberDevice={numberOrder} nom_variable={'Ordenes Totales: '} />
-            <Contador numberDevice={totalByUser} nom_variable={'Equipos por nombre: '} />
-            <Contador numberDevice={numberOfUsers} nom_variable={'Usuarios totales: '} />
+
+        <main>
+            <section id='ladoIzquierdo'>
+            </section>
+
+            <section id='ladoDerecho'>
+                <header>
+                    <div className='container-buscador'>
+                        <Buscador numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} />
+                    </div>
+                </header>
+                <section id='tarjetas'>
+                    <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} />
+                    <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder} />
+                    <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice} />
+                    <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers} />
+                    <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser} />
+                </section>
+                <section id='tablaForm'>
+                    <section id='tablas'>
+                        <Table device={Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
+                    </section>
+                    <section id='formularios'>
+                        <Formulario deviceRegisterPage={deviceRegisterPage} />
+                    </section>
+                </section>
+            </section>
+        </main>
 
 
-            <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} />
-            
-            <div>
-                <Table device = {Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
-            </div>
-            <div>
-                <Formulario deviceRegisterPage={deviceRegisterPage} />
-            </div>
 
 
-        </div>
+
+
+
+
+
+        // <div> 
+        //     <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice}  />
+        //     <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket}  />
+        //     <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder}  />
+        //     <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser}  />
+        //     <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers}  />
+
+
+        //     <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} />
+
+        //     <div>
+        //         <Table device = {Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
+        //     </div>
+        //     <div>
+        //         <Formulario deviceRegisterPage={deviceRegisterPage}/>
+        //     </div>
+
+
+        // </div>
 
 
 

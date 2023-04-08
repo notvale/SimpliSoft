@@ -1,0 +1,16 @@
+.buscador{
+    background-color: whitesmoke;
+    height: 30px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container-buscador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+}

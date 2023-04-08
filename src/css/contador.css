@@ -1,22 +1,22 @@
 .contador {
-    /* min-width: 100px; */
-    max-width: 150px;
+    width: 150px;
     height: 100px;
-    font-size: 15px;
-    padding: 5px;
-    color: black;
-    display: flex;
+    display: inline-block;
+    margin: 20px;
+    /* display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    border: 8px solid  rgb(255, 108, 3);
-    margin-bottom: 15px;
+    justify-content: center; */
+    border: 5px solid  rgb(255, 108, 3);
 }
 
-h6{
-    margin-top: 0;
+.cantidad{
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 8px;
-    padding: 5px;
+    font-size: 60px;
+    font-weight: bold;
+}
+.titulo{
+    font-size: 15px; 
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/formulario.css"
 import { useEffect, useState } from 'react';
+import '../css/buscador.css'
 
 const Buscador = ( {numberOfDevicesByUsernamePage ,findAllDevicesByUsernamePage} ) => {
     const [username, setUsername] = useState('');
@@ -17,7 +18,7 @@ const Buscador = ( {numberOfDevicesByUsernamePage ,findAllDevicesByUsernamePage}
             <input 
                     type="text" 
                     placeholder="Ingresa nombre" 
-                    className="form-input" 
+                    className="buscador" 
                     id="nombre"
                     onInput={manejarCambio}                     
             />

@@ -13,8 +13,15 @@ const UserstByRoleService = async () => {
 // 2 - GET: Retorna la cantidad de usuarios registrados en la DB
 const numberOfUsersService = async () =>{
     const rest = await axios.get(baseURL + '/total' );
-    console.log('totalUsersService: ' + rest);
+    //console.log('totalUsersService: ' + rest);
     return rest.data;
-
 }
-export {UserstByRoleService, numberOfUsersService};
+
+// 3- GET: Retorna N° de usuarios por role
+const numberOfUserstByRoleService = async () => {
+    const rest = await axios.get(baseURL + '/totalByRole/Administrador');
+    console.log('N°porRoleService: ' + rest);
+    return rest.data;
+}
+
+export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService};
