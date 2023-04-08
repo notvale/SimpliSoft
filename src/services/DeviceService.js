@@ -59,7 +59,7 @@ const numberOfDevicesByUsernameService = async (username) => {
 // 7- GET: Retorna todos los equipos asociados a un username
 const findAllDevicesByUsernameService = async (username) => {
     const rest = await axios.get(baseURL + '/device/' + username);
-    console.log(rest);
+    console.log('roleService: ' + rest);
     return rest.data
 }
 

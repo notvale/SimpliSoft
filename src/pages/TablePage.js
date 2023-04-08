@@ -9,6 +9,8 @@ import {
     numberOfDevicesService, numberOfDevicesByUsernameService } from '../services/DeviceService';
 import { numberOfTicketsService } from '../services/TicketService';
 import {numberOfOrdersService} from '../services/OrderService';
+import {UserstByRoleService, numberOfUsersService} from '../services/UserService';
+
 const TablePage = () => {
     /*
         Declaración de useState
@@ -25,8 +27,12 @@ const TablePage = () => {
     const [deviceEdit, setDeviceEdit] = useState(null);
     // TICKET: useState para N° de Ticket
     const [numberTicket, setNumberTicket] = useState(0);
-    // ORDER: 
+    // ORDER: useState para N° de Ordenes
     const [numberOrder,setNumberOrder] = useState(0);
+    // USER: useState para mostrar a los usuarios segun su role
+    const [userByRole, setUserByRole] = useState({});
+    // USER: useState para N° de usuarios totales
+    const [numberOfUsers, setNumberOfUsers] = useState(0);
     //--------------------------------------------
     // Funciones para los Devices
     //--------------------------------------------
@@ -38,6 +44,8 @@ const TablePage = () => {
         numberOfTicketsPage();
         numberOfOrdersPage();
         findAllDevicesByUsernamePage();
+        UserstByRolePage();
+        numberOfUsersPage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -88,6 +96,22 @@ const TablePage = () => {
 
         console.log('cantidad de tickets' + numberTicket);
     }
+    //----------------------------------------------------
+    // Funciones para los Usuarios
+    //---------------------------------------------------
+    // USER: Funcion que retorna los usuarios segun su Role
+    const UserstByRolePage = async () => {
+        setUserByRole(await UserstByRoleService());
+        console.log('Usuarios por rolePage: ' + userByRole);
+    }
+    // USER: Retorna el °N de usuarios totales
+    const numberOfUsersPage = async () =>{
+        setNumberOfUsers(await numberOfUsersService());
+        console.log('Total de usersPage: ' + numberOfUsers);
+
+    }
+
+
     /* UseEffect:
      Se activa cuando se recarga la página o
      cambia el valor de alguna variable dentro de los []   
@@ -102,10 +126,11 @@ const TablePage = () => {
 
     return (
         <div>
-            <Contador numberDevice={numberDevice} nom_variable={'Equipos Totales:'} />
-            <Contador numberDevice={numberTicket} nom_variable={'Tickes Totales:'} />
-            <Contador numberDevice={numberOrder} nom_variable={'Ordenes Totales:'} />
-            <Contador numberDevice={totalByUser} nom_variable={'Equipos por nombre'} />
+            <Contador numberDevice={numberDevice} nom_variable={'Equipos Totales: '} />
+            <Contador numberDevice={numberTicket} nom_variable={'Tickes Totales: '} />
+            <Contador numberDevice={numberOrder} nom_variable={'Ordenes Totales: '} />
+            <Contador numberDevice={totalByUser} nom_variable={'Equipos por nombre: '} />
+            <Contador numberDevice={numberOfUsers} nom_variable={'Usuarios totales: '} />
 
 
             <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} />
