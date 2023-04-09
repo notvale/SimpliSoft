@@ -807,7 +807,7 @@ a {
 .footer {
   padding: 1em;
   margin: 2rem auto 0;
-  background-color: black;
+  background-color: darkgray;
   color: lightgray;
 }
 
@@ -917,7 +917,7 @@ a {
 
 @media (min-width: 32em) {
   .footer-newsletter {
-    text-align: left;
+    text-align: center;
   }
 
   .footer-form {
