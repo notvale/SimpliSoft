@@ -45,7 +45,7 @@ header{
     width: 1000px;
     background-color: blue;
     display: inline-block;
-    
+    overflow: auto;  
 }
 #tablaForm{
     height: 550px;
