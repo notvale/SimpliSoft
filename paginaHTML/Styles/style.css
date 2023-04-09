@@ -256,6 +256,20 @@ a {
   z-index: -1;
 }
 
+.get-feedback__background_blob {
+  max-width: 52rem;
+  margin: -3rem 0rem 0rem 3rem;
+  opacity: 60%;
+  z-index: -1;
+}
+
+.learning__background_blob {
+  max-width: 52rem;
+  margin: -3rem 0rem 0rem 3rem;
+  opacity: 60%;
+  z-index: -1;
+}
+
 @media (min-width: 32em) {
   .intro {
     margin: 2rem auto 0;
@@ -292,6 +306,26 @@ a {
   }
 
   .intro__background_blob {
+    grid-area: img;
+    align-self: center;
+  }
+
+  .get-feedback__illustration {
+    grid-area: img;
+    align-self: center;
+  }
+
+  .get-feedback__background_blob {
+    grid-area: img;
+    align-self: center;
+  }
+
+  .learning__illustration {
+    grid-area: img;
+    align-self: center;
+  }
+
+  .learning__background_blob {
     grid-area: img;
     align-self: center;
   }
