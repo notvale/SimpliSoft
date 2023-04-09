@@ -207,13 +207,22 @@ a {
   padding: 0 1em;
 }
 
-.intro__title {
-  margin: 0;
-  font-family: var(--familyRobotoSlab);
-  font-size: 2.4rem;
-  font-weight: normal;
-  line-height: 1.3;
-  color: var(--darkPurple);
+.intro__title_1 {
+  margin-bottom: -1rem;
+  font-family: 'Inter';
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #FF6F1D;
+}
+
+.intro__title_2 {
+  margin-top: -1.2rem;
+  font-family: 'Inter';
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #0A0A0A;
 }
 
 .intro__subtitle {
@@ -226,9 +235,9 @@ a {
   display: inline-block;
   padding: 0.7em 1.2em;
   font-size: 1rem;
-  background-color: var(--pink);
+  background-color: #FF6F1D;
   color: var(--white);
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .button:hover {
