@@ -8,7 +8,7 @@ import {
     deviceFindAllService, deviceRegisterService, deviceUpdateService, deviceDeleteService, findAllDevicesByUsernameService,
     numberOfDevicesService, numberOfDevicesByUsernameService
 } from '../services/DeviceService';
-import { numberOfTicketsService } from '../services/TicketService';
+import { numberOfTicketsService,numberOfTicketByStatusService } from '../services/TicketService';
 import { numberOfOrdersService, registerOrderService } from '../services/OrderService';
 import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService } from '../services/UserService';
 import "../css/PageTable.css"
@@ -29,6 +29,8 @@ const TablePage = () => {
     const [deviceEdit, setDeviceEdit] = useState(null);
     // TICKET: useState para N° de Ticket
     const [numberTicket, setNumberTicket] = useState(0);
+    // TICKET: useState para N° de Tickets por status
+    const[totalTicketByStatus, setTotalTicketByStatus] = useState(0);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
     // USER: useState para mostrar a los usuarios segun su role
@@ -51,6 +53,7 @@ const TablePage = () => {
         UserstByRolePage();
         numberOfUsersPage();
         numberOfUserstByRolePage();
+        numberOfTicketByStatusPage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -86,11 +89,17 @@ const TablePage = () => {
     //----------------------------------------------------
     // Funciones para los Tickets
     //---------------------------------------------------
-    // TICKET: Funcion que retorna la cantidad TICKETS totales
+    // TICKET: Funcion que retorna la cantidad TICKETS "totales"
     const numberOfTicketsPage = async () => {
         setNumberTicket(await numberOfTicketsService());
 
         console.log('cantidad de tickets' + numberTicket);
+    }
+    // TICKET: Funcion que retorna la cantidad TICKETS por "status"
+    const numberOfTicketByStatusPage = async () =>{
+        setTotalTicketByStatus(await numberOfTicketByStatusService())
+        console.log('statusPage: ' + numberTicket);
+
     }
     //-----------------------------
     // Funciones para las órdenes
@@ -151,7 +160,9 @@ const TablePage = () => {
                     <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder} />
                     <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice} />
                     <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers} />
-                    <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser} />
+                    {/* <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser} /> */}  {/* Se comento solo para visualizar los ticket de abajo*/}
+                    <Contador nom_variable={'Ticket Cerrado: '} numberDevice={totalTicketByStatus[0]} />
+                    <Contador nom_variable={'Ticket Abierto: '} numberDevice={totalTicketByStatus[1]} />
                 </section>
                 <section id='tablaForm'>
                     <section id='tablas'>
