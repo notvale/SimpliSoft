@@ -265,7 +265,7 @@ a {
 
 .learning__background_blob {
   max-width: 52rem;
-  margin: -3rem 0rem 0rem 3rem;
+  margin: -3rem 0rem 0rem 14rem;
   opacity: 60%;
   z-index: -1;
 }
@@ -323,6 +323,7 @@ a {
   .learning__illustration {
     grid-area: img;
     align-self: center;
+    margin-left: 22rem;
   }
 
   .learning__background_blob {
@@ -357,6 +358,29 @@ a {
   text-align: center;
 }
 
+.features__title_1 {
+  font-family: 'Inter';
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #0A0A0A;
+}
+
+.features__title_2 {
+  margin-top: -4.2rem;
+  font-family: 'Inter';
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #FF6F1D; 
+}
+
+.features__subtitle {
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
+  color: var(--darkGrey);
+}
+
 .features__list li {
   padding: 1rem;
 }
@@ -366,6 +390,10 @@ a {
 }
 
 @media (min-width: 32em) {
+  .features {
+    display:flex;
+  }
+  
   .features__list {
     display: flex;
     justify-content: space-around;
@@ -484,11 +512,30 @@ a {
   width: 100%;
 }
 
+.get-feedback__title_1 {
+  margin-bottom: -1rem;
+  margin-top: 17rem;
+  font-family: 'Inter';
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #FF6F1D;
+}
+
+.get-feedback__title_2 {
+  margin-top: -1.2rem;
+  font-family: 'Inter';
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #0A0A0A;
+}
+
 @media (min-width: 32em) {
   .get-feedback {
     display: grid;
     grid-gap: 24px;
-    grid-template-columns: 50% minmax(200px, 550px);
+    grid-template-columns: 61% minmax(200px, 550px);
     grid-template-areas:
       "img ."
       "img title"
@@ -536,10 +583,31 @@ a {
   width: 100%;
 }
 
+.learning__title_1 {
+  margin-bottom: -1rem;
+  margin-right: -7rem;
+  margin-top: 17rem;
+  font-family: 'Inter';
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #0A0A0A;
+}
+
+.learning__title_2 {
+  margin-top: 0.8rem;
+  margin-right: -5rem;
+  font-family: 'Inter';
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #FF6F1D; 
+}
+
 @media (min-width: 32em) {
   .learning {
     display: grid;
-    grid-template-columns: minmax(200px, 450px) 50%;
+    grid-template-columns: minmax(200px, 450px) 70%;
     grid-template-areas:
       ". img"
       "title img"
