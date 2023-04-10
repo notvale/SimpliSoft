@@ -1,19 +1,11 @@
 import React from 'react';
-//import Navbar from '../components/Navbar';
-import {Navbar} from'../components';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
     return (
         <div>
-
-<Navbar/>
-
-<br></br>
-<br></br>
-<br></br>
 <h1>hola esta es la landing</h1>
-
-
+<Link to ='/RegistroPage'><button class="btn btn-primary" type="button">Login</button></Link>
 
         </div>
     )

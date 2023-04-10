@@ -1,11 +1,11 @@
-import { Header } from "./Header";
-import { MenuLateral } from "./MenuLateral";
-import { Navbar } from "./Navbar";
+// import { Header } from "./Header";
+// import { MenuLateral } from "./MenuLateral";
+// import { Navbar } from "./Navbar";
 
-export{
-    Header,
-    MenuLateral,
-    Navbar,
-}
+// export{
+//     Header,
+//     MenuLateral,
+//     Navbar,
+// }
 
 

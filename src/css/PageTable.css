@@ -1,4 +1,4 @@
-*{
+/* *{
     padding: 0px;
     margin: 0px;
 }
@@ -12,7 +12,7 @@ main{
 header{
     height: 50px;
     width: 1300px;
-    background: orange;
+    background: rgb(255, 0, 179);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ header{
     height: 750px;
     width: 1300px;
     /* background: rgb(35, 66, 19); */
-    float: right; /**Para ubicar el lado derecho a la derecha*/
+    /* float: right; /**Para ubicar el lado derecho a la derecha
 }
 #ladoIzquierdo{
     height: 750px;
@@ -30,7 +30,7 @@ header{
     background: rgb(40, 148, 30);
     display: inline-block; /*Para que el lado derecho quede en linea*/
    
-}
+/* }
 #tarjetas{
     height: 150px;
     width: 1300px;
@@ -62,4 +62,4 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */ 

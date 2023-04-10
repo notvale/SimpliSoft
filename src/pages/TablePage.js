@@ -1,14 +1,18 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import Table from '../components/Table';
-import Contador from '../components/Contador';
-import Formulario from '../components/Formulario';
-import Buscador from '../components/Buscador';
+// import Table from '../components/Table';
+// import Contador from '../components/Contador';
+// import Formulario from '../components/Formulario';
+// import Buscador from '../components/Buscador';
+import Sidebar from '../components/Sidebar';
+import MainContent from '../components/MainContent';
+import Main from '../components/Main';
+
 import {
     deviceFindAllService, deviceRegisterService, deviceUpdateService, deviceDeleteService, findAllDevicesByUsernameService,
     numberOfDevicesService, numberOfDevicesByUsernameService
 } from '../services/DeviceService';
-import { numberOfTicketsService,numberOfTicketByStatusService } from '../services/TicketService';
+import { numberOfTicketsService, numberOfTicketByStatusService } from '../services/TicketService';
 import { numberOfOrdersService, registerOrderService } from '../services/OrderService';
 import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService } from '../services/UserService';
 import "../css/PageTable.css"
@@ -30,7 +34,7 @@ const TablePage = () => {
     // TICKET: useState para N° de Ticket
     const [numberTicket, setNumberTicket] = useState(0);
     // TICKET: useState para N° de Tickets por status
-    const[totalTicketByStatus, setTotalTicketByStatus] = useState(0);
+    const [totalTicketByStatus, setTotalTicketByStatus] = useState(0);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
     // USER: useState para mostrar a los usuarios segun su role
@@ -96,7 +100,7 @@ const TablePage = () => {
         console.log('cantidad de tickets' + numberTicket);
     }
     // TICKET: Funcion que retorna la cantidad TICKETS por "status"
-    const numberOfTicketByStatusPage = async () =>{
+    const numberOfTicketByStatusPage = async () => {
         setTotalTicketByStatus(await numberOfTicketByStatusService())
         console.log('statusPage: ' + numberTicket);
 
@@ -145,35 +149,40 @@ const TablePage = () => {
 
     return (
 
-        <main>
-            <section id='ladoIzquierdo'>
-            </section>
+        <div>
+            <Sidebar />
+            <MainContent />
+            <Main />
+        </div>
+        // <main>
+        //     <section id='ladoIzquierdo'>
+        //     </section>
 
-            <section id='ladoDerecho'>
-                <header>
-                    <div className='container-buscador'>
-                        <Buscador numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} />
-                    </div>
-                </header>
-                <section id='tarjetas'>
-                    <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} />
-                    <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder} />
-                    <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice} />
-                    <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers} />
-                    {/* <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser} /> */}  {/* Se comento solo para visualizar los ticket de abajo*/}
-                    <Contador nom_variable={'Ticket Cerrado: '} numberDevice={totalTicketByStatus[0]} />
-                    <Contador nom_variable={'Ticket Abierto: '} numberDevice={totalTicketByStatus[1]} />
-                </section>
-                <section id='tablaForm'>
-                    <section id='tablas'>
-                        <Table device={Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
-                    </section>
-                    <section id='formularios'>
-                        <Formulario deviceRegisterPage={deviceRegisterPage} />
-                    </section>
-                </section>
-            </section>
-        </main>
+        //     <section id='ladoDerecho'>
+        //         <header>
+        //             <div className='container-buscador'>
+        //                 <Buscador numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} />
+        //             </div>
+        //         </header>
+        //         <section id='tarjetas'>
+        //             <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} />
+        //             <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder} />
+        //             <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice} />
+        //             <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers} />
+        //             {/* <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser} /> */}  {/* Se comento solo para visualizar los ticket de abajo*/}
+        //             <Contador nom_variable={'Ticket Cerrado: '} numberDevice={totalTicketByStatus[0]} />
+        //             <Contador nom_variable={'Ticket Abierto: '} numberDevice={totalTicketByStatus[1]} />
+        //         </section>
+        //         <section id='tablaForm'>
+        //             <section id='tablas'>
+        //                 <Table device={Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
+        //             </section>
+        //             <section id='formularios'>
+        //                 <Formulario deviceRegisterPage={deviceRegisterPage} />
+        //             </section>
+        //         </section>
+        //     </section>
+        // </main>
 
 
 

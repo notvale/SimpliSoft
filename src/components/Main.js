@@ -9,6 +9,8 @@ function Main() {
       <section>
         <h3 className="section-head">Resumen</h3>
         <div className="analytics">
+
+{/* //Tarjeta 1 */}
           <div className="analytic">
             <div className="analytic-icon">
               <span className="las la-eye"></span>
@@ -18,6 +20,8 @@ function Main() {
               <h1>3</h1>
             </div>
           </div>
+
+{/* //Tarjeta 2 */}
 
           <div className="analytic">
             <div className="analytic-icon">
@@ -29,6 +33,8 @@ function Main() {
             </div>
           </div>
 
+{/* //Tarjeta 3 */}
+
           <div className="analytic">
             <div className="analytic-icon">
               <span className="las la-times-circle"></span>
@@ -38,6 +44,8 @@ function Main() {
               <h1>10</h1>
             </div>
           </div>
+
+{/* //Tarjeta 4 */}
 
           <div className="analytic">
             <div className="analytic-icon">
@@ -51,6 +59,7 @@ function Main() {
         </div>
       </section>
 
+{/* Cuadro izquierdo */}
       <section>
         <div className="block-grid">
           <div className="revenue-card">
@@ -67,6 +76,8 @@ function Main() {
               </div>
             </div>
           </div>
+
+{/* Gráfico */}
 
           <div className="graph-class">
             <h3 className="section-head">Gráfico</h3>
