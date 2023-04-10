@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL ="http://localhost:8080/auth"; //como saco ese número ?
+const baseURL ="http://localhost:8080/auth";
 
 //get para obtener Usuarios registrados en la BD
 
