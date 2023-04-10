@@ -6,6 +6,7 @@ import UserPage from './pages/UserPage';
 import RegistroPage from './pages/RegistroPage';
 import TablePage from './pages/TablePage';
 import { UserPageClient } from './pages/UserPageClient';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
     return (
@@ -16,8 +17,7 @@ const App = () => {
                 <Route path ='/RegistroPage' element={<RegistroPage/>}> </Route>
                 <Route path ='/UserPage' element={<UserPage/>}> </Route>
                 <Route path ='/TablePage' element={<TablePage/>}> </Route>
-                <Route path ='/UserPageClient' element={<UserPageClient/>}> </Route>
-
+                {/* <Route path ='/FormularioPage' element={<FormularioPage/>}> </Route> */}
             </Routes>
         </BrowserRouter>
 
