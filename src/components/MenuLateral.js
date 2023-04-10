@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MenuLateral = () => {
     return (
@@ -10,6 +11,7 @@ const MenuLateral = () => {
                     <li>Reporte</li>
                     <li>Tickets</li>
                     <li>Órdenes</li>
+                    <li>Dispositivos</li>
                 </ul>
             </div>
         </div>
