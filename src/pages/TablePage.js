@@ -1,33 +1,61 @@
 import React from 'react';
 import Table from '../components/Table';
 import { useEffect, useState } from 'react';
-import { getAll } from '../services/DeviceService';
+import { deviceFindAllService, deviceRegisterService, deviceUpdateService, deviceDeleteService } from '../services/DeviceService';
+import Formulario from '../components/Formulario';
 
 
 const TablePage = () => {
 
     // Usando useState
-    const [equipo, setEquipo] = useState([]);
-    console.log("holDespues del useState");
+    const [device, setDevice] = useState([]);
 
-     const obtenerEquipos = async () => {
-        console.log("hola dentro de obtener equipos");
-         setEquipo(await getAll());
-     }
-     console.log("holaGeneral2");
+    // Función retorna todos los equipos
+    const deviceFindAllPage = async () => {
+        setDevice(await deviceFindAllService());
+    }
+    // Función ingresar/registrar datos a la BD
+    const deviceRegisterPage = async (device) => {
+        await deviceRegisterService(device);
+        deviceFindAllPage();
+    }
+    // Función para editar un equipo en la BD 
+    const deviceUpdatePage = async () => {
+        await deviceUpdateService();
+        deviceFindAllPage();
+    }
+    //Función para Eliminar/Borrar un equipo
+    const deviceDeletePage = async (id) => {
+        await deviceDeleteService(id);
+        deviceFindAllPage();
+    }
 
-     // Usnado useEffect
-     useEffect(() => {
-         console.log(equipo);
-         obtenerEquipos();
-     },[]);
-
-
+    // Usando useEffect
+    useEffect(() => {
+        console.log(device);
+        deviceFindAllPage();
+        // deviceRegisterPage();
+        // deviceUpdatePage();
+        deviceDeletePage();
+    }, []);
 
     return (
         <div>
-           
-            <Table equipo={equipo} />
+            <div>
+                <Table device={device} deviceDeletePage={deviceDeletePage}/>
+            </div>
+            <div>
+            <Formulario deviceRegisterPage = {deviceRegisterPage}/>
+            </div>
+            {/* <tr>
+                <td>
+                    <Table device={device} />
+                </td>
+                <td>
+                    <Formulario deviceRegisterPage = {deviceRegisterPage}/>
+                </td>
+            </tr> */}
+
         </div>
 
 
