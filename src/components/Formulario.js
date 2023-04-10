@@ -13,8 +13,10 @@ import { useEffect, useState } from 'react';
     }
 
 const Formulario = ({deviceRegisterPage}) => { //usamos el mismo promp que es TablePage 
+    
     const [device,setDevice] = useState(deviceInit);
     const {idDevice, deviceType, deviceBrand, deviceModel,serialNumber,fkIdUser} = device;
+    
     // Esta funcion permite guardar tods lo datos un formulario y activar el useState una sola vez.
     const handleInputChange = (e) => {
         console.log(e);
@@ -22,8 +24,10 @@ const Formulario = ({deviceRegisterPage}) => { //usamos el mismo promp que es Ta
             ...device,
             [e.target.name]: e.target.value,
         }
+
         setDevice(handleFormValue);
         console.log(device);
+
     }
     return (
         <div id="container">
@@ -74,13 +78,13 @@ const Formulario = ({deviceRegisterPage}) => { //usamos el mismo promp que es Ta
 
                 <label for="Id Cliente" className="form-label">Id Cliente</label>
                 <input 
-                type="text" 
-                placeholder="Id Cliente" 
-                className="form-input" 
-                id="fkIdUser"       //nombre que aparece en el json postman
-                name="fkIdUser"     //nombre que aparece en el json postman
-                value={fkIdUser}    //nombre que aparece en el json postman
-                onChange={handleInputChange}/>
+                    type="text" 
+                    placeholder="Id Cliente" 
+                    className="form-input" 
+                    id="fkIdUser"       //nombre que aparece en el json postman
+                    name="fkIdUser"     //nombre que aparece en el json postman
+                    value={fkIdUser}    //nombre que aparece en el json postman
+                    onChange={handleInputChange}/>
 
                 <div id ='button'>
                     <button class="btn btn-primary" type="button" onClick={()=>deviceRegisterPage(device)} >Registrar</button>
