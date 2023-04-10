@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --color-main: #396aff;
+    --bg: #dce5ff;
+    --main-accent: #e9eefd;
+    /*--color-main: #FF6F1D;
+    --bg: #dce5ff;
+    --main-accent: #fad3bd;*/
+    /* --main-text: #4b5876; */
+    --main-text: #0A0A0A;
+    --shadow: rgba(17, 17, 26, 0.1) 2px 2px 16px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Inter', sans-serif;
+    list-style-type: none;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: var(--bg2);
+    overflow-x: hidden;
+}
+
+#menu-toggle {
+    display: none; 
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+.sidebar {
+    width: 345;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1rem 1.2rem;
+
+}
+
+.sidebar-container {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 1.2rem;
+    overflow-y: auto;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+  
+.brand h2 {
+    color: #0A0A0A;
+}
+
+.brand h2 span {
+    color: var(--color-main);
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-right: .1rem;
+    
+}
+
+.sidebar-avatar {
+    display: flex;
+    grid-template-columns: 70px auto;
+    align-items: center;
+    border: 2px solid var(--main-accent);
+    padding: .1rem .7rem;
+    border-radius: 7px;
+    margin: 2.5rem 0rem;
+}
+
+.avatar-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+/* .icono-user img {
+    width: 100px;
+} */
+
+.sidebar-menu li {
+    margin-bottom: .2rem;
+
+}
+
+.sidebar-menu a {
+    color: var(--main-text);
+    display: block;
+    padding: .7rem 0rem;
+
+}
+
+.sidebar-menu a.active {
+    background: var(--main-accent);
+    padding: .7rem;
+    border-radius: 7px;
+}
+
+.sidebar-menu a span:first-child {
+    display: inline-block;
+    margin-right: .8rem;
+    font-size: 1.5rem;
+    color: var(--color-main);
+}
+
+.sidebar-card {
+    background: var(--main-accent);
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+    
+}
+
+.side-card-icon span {
+    font-size: 8rem;
+    color: var(--color-main);
+    display: inline-block;
+}
+
+.side-card-icon {
+    margin-bottom: .8rem;
+}
+
+.side-card-icon + div {
+    margin-bottom: 1.2rem;
+}
+
+.side-card-icon + div p {
+    font-size: .8rem;
+    color: #555;
+}
+
+.btn {
+    padding: .7rem 1rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.btn span {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-right: .7rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-main {
+    background: var(--color-main);
+    color: #fff;
+}
+
+.main-content {
+    margin-left: 245px; /*Original was 345px*/
+    width: calc(100vw - 345px);
+    padding: 1rem 1.2rem;
+    padding-right: 2rem;
+    padding-left: 5rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: .5rem;
+  
+}
+
+.header-title-wrapper {
+    display: flex;
+    
+}
+
+.header-title-wrapper label {
+    display: inline-block;
+    color: var(--color-main);
+    margin-right: 2rem;
+    font-size: 1.8rem;
+}
+
+.header-title h1 {
+    color: var(--main-text);
+    font-weight: 600;
+
+}
+
+.header-title p {
+    color: #666;
+    font-size: .8rem;
+}
+
+.header-title p span {
+    color: red;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-left: .5rem;
+}
+
+.header-action button {
+    padding: .85rem 2rem;
+    font-size: 1rem;
+}
+
+main {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 20rem;
+    padding-right: 4rem;
+}
+
+.analytics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.analytic {
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    padding-left: 2rem;
+}
+
+.analytic-info h4 {
+    font-weight: 400;
+    color: #555;
+    font-size: .98rem;
+ 
+}
+
+.analytic-info h1 {
+    color: var(--main-text);
+    font-weight: 600;
+}
+
+.analytic-info h1 small {
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.text-danger {
+    color: red;
+}
+
+.text-success {
+    color: #2ec3a3;
+}
+
+.text-main {
+    color: var(--color-main);
+}
+
+.analytic:first-child .analytic-icon {
+    background: #dce5ff;
+    color: #6883db;
+}
+
+.analytic:nth-child(2) .analytic-icon {
+    background: #ebf7f5;
+    color: red;
+}
+
+.analytic:nth-child(3) .analytic-icon {
+    background: #ebf7f5;
+    color: #2ec3a3;
+}
+
+.analytic:nth-child(4) .analytic-icon {
+    background: var(--main-accent);
+    color: var(--color-main);
+}
+
+.analytic-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-right: .8rem;
+}
+
+.section-head {
+    font-size: 1.8rem;
+    color: var(--main-text);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.block-grid {
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-gap: 0rem 3rem;
+}
+
+.rev-content {
+    background: #fff;
+    box-shadow: var(--shadow);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+/*Cambia la imagen*/
+.rev-content img {
+    width: 200px;
+    margin: 1.5rem 0rem;
+}
+ 
+.rev-info {
+    margin-bottom: 1rem;
+}
+
+.rev-info h3,
+.rev-info h1 {
+    color: var(--main-text);
+}
+
+.rev-info h1 {
+    font-weight: 600;
+    margin-top: .2rem;
+}
+
+.rev-info h1 {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #555;
+}
+
+.rev-sum {
+    background: var(--main-accent);
+    border: 1px solid var(--color-main);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.rev-sum h4 {
+    color: #555;
+    font-weight: 400;
+    margin-bottom: .5rem;
+}
+
+.rev-sum h2 {
+    font-weight: 600;
+    color: var(--main-text);
+}
+
+.graph-content {
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    background: ;
+ 
+}
