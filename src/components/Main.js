@@ -25,9 +25,9 @@ function Main({ totalTicketByStatus, numberTicket, view }) {
               ) : view === 'Ordenes' ? // Para la vista de Ordenes
                 (
                   <>
-                    <Contador nom_variable={'Órdenes Abiertos: '} numberDevice={totalTicketByStatus[1]} typeIcon={iconArray[0]} />
-                    <Contador nom_variable={'Órdenes Pausados: '} numberDevice={totalTicketByStatus[2]} typeIcon={iconArray[1]} />
-                    <Contador nom_variable={'Órdenes Cerrados: '} numberDevice={totalTicketByStatus[0]} typeIcon={iconArray[2]} />
+                    <Contador nom_variable={'Órdenes Sin Revisar: '} numberDevice={totalTicketByStatus[1]} typeIcon={iconArray[0]} />
+                    <Contador nom_variable={'Órdenes Revisadas: '} numberDevice={totalTicketByStatus[2]} typeIcon={iconArray[1]} />
+                    <Contador nom_variable={'Órdenes Reparadas: '} numberDevice={totalTicketByStatus[0]} typeIcon={iconArray[2]} />
                     <Contador nom_variable={'Órdenes Totales: '} numberDevice={numberTicket} typeIcon={iconArray[3]} />
                   </>
                 ) : // Para la vista de Inicio

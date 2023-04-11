@@ -4,6 +4,11 @@ import logo from '../images/logo.png';
 
 function Sidebar() {
 
+  const handleClick = (event) => {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+    console.log('Enlace clicado!');
+    // Aquí puedes realizar las acciones que desees al hacer clic en el enlace
+  }
   return (
     <>
       <input type="checkbox" name="" id="menu-toggle" />
@@ -52,27 +57,27 @@ function Sidebar() {
               </li>
               {/* Tickets */}
               <li>
-                <a href="">
+                <a href="#" onClick={handleClick}>
                   <span className="las la-ticket-alt"></span>
                   <span>Tickets</span>
                 </a>
               </li>
               {/* Clientes */}
               <li>
-                <a href="">
+                <a href="#" onClick={handleClick}>
                   <span className="las la-user-friends"></span>
                   <span>Clientes</span>
                 </a>
               </li>
               {/* órdenes */}
               <li>
-                <a href="" >
+                <a href="#" onClick={handleClick}>
                   <span className="las la-calendar"></span>
                   <span>Órdenes</span>
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="#" onClick={handleClick}>
                   <span className="las la-user"></span>
                   <span>Cuenta</span>
                 </a>
