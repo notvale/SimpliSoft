@@ -34,7 +34,7 @@ const TablePage = () => {
     // TICKET: useState para N° de Ticket
     const [numberTicket, setNumberTicket] = useState(0);
     // TICKET: useState para N° de Tickets por status
-    const [totalTicketByStatus, setTotalTicketByStatus] = useState(0);
+    const [totalTicketByStatus, setTotalTicketByStatus] = useState([]);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
     // USER: useState para mostrar a los usuarios segun su role
@@ -152,7 +152,7 @@ const TablePage = () => {
         <div>
             <Sidebar />
             <MainContent />
-            <Main />
+            <Main totalTicketByStatus={totalTicketByStatus} numberTicket={numberTicket} />
         </div>
         // <main>
         //     <section id='ladoIzquierdo'>

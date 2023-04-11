@@ -12,7 +12,8 @@ const numberOfTicketsService = async () => {
 
 const statusTickets = {
     1: 'Cerrado',
-    2: 'Abierto'
+    2: 'Abierto',
+    3: 'Pausado'
 }
 
 // - GET: Retorna cantidad de tickets por status

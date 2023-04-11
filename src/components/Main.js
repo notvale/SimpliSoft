@@ -1,8 +1,9 @@
 import '../css/dashboard.css';
 import carlos from '../images/carlos.png';
 import React, { Fragment } from 'react';
+import Contador from './Contador';
 
-function Main() {
+function Main({totalTicketByStatus, numberTicket}) {
   return (
     <Fragment>
     <main>
@@ -10,7 +11,16 @@ function Main() {
         <h3 className="section-head">Resumen</h3>
         <div className="analytics">
 
-{/* //Tarjeta 1 */}
+        <Contador nom_variable={'Tickes Abiertos: '} numberDevice={totalTicketByStatus[1]} typeIcon = {'las la-eye'}/>
+        <Contador nom_variable={'Tickes Pausados: '} numberDevice={totalTicketByStatus[2]} typeIcon = {'las la-clock'}/>
+        <Contador nom_variable={'Tickes Cerrados: '} numberDevice={totalTicketByStatus[0]} typeIcon = {'las la-times-circle'}/>
+        <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} typeIcon = {'las la-check-circle'}/>
+
+
+
+
+
+{/* //Tarjeta 1
           <div className="analytic">
             <div className="analytic-icon">
               <span className="las la-eye"></span>
@@ -19,11 +29,11 @@ function Main() {
               <h4>Tickets Abiertos</h4>
               <h1>3</h1>
             </div>
-          </div>
+          </div> */}
 
 {/* //Tarjeta 2 */}
 
-          <div className="analytic">
+          {/* <div className="analytic">
             <div className="analytic-icon">
               <span className="las la-clock"></span>
             </div>
@@ -31,11 +41,11 @@ function Main() {
               <h4>Tickets pausados</h4>
               <h1>25</h1>
             </div>
-          </div>
+          </div> */}
 
 {/* //Tarjeta 3 */}
 
-          <div className="analytic">
+          {/* <div className="analytic">
             <div className="analytic-icon">
               <span className="las la-times-circle"></span>
             </div>
@@ -43,11 +53,11 @@ function Main() {
               <h4>Tickets cerrados</h4>
               <h1>10</h1>
             </div>
-          </div>
+          </div> */}
 
 {/* //Tarjeta 4 */}
 
-          <div className="analytic">
+          {/* <div className="analytic">
             <div className="analytic-icon">
               <span className="las la-check-circle"></span>
             </div>
@@ -55,8 +65,8 @@ function Main() {
               <h4>Tickets totales</h4>
               <h1>50 <small className="text-success">15%</small></h1>
             </div>
-          </div>
-        </div>
+          </div>*/}
+        </div> 
       </section>
 
 {/* Cuadro izquierdo */}
