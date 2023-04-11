@@ -34,7 +34,7 @@ const TablePage = () => {
     // TICKET: useState para N° de Ticket
     const [numberTicket, setNumberTicket] = useState(0);
     // TICKET: useState para N° de Tickets por status
-    const [totalTicketByStatus, setTotalTicketByStatus] = useState(0);
+    const [totalTicketByStatus, setTotalTicketByStatus] = useState([]);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
     // USER: useState para mostrar a los usuarios segun su role
@@ -150,9 +150,12 @@ const TablePage = () => {
     return (
 
         <div>
-            <Sidebar />
+            {/* Sidebar: Aquí se encuentra el menu lateral */}
+            <Sidebar /> 
+            {/* MainContent: Aquí se encuentra la Bienvenida y/o cabecera */}
             <MainContent />
-            <Main />
+            {/* Main: Aquí se encuentran las tarjetas, cuadro de ingresos y gráficos */}
+            <Main totalTicketByStatus={totalTicketByStatus} numberTicket={numberTicket} />
         </div>
         // <main>
         //     <section id='ladoIzquierdo'>
@@ -164,15 +167,7 @@ const TablePage = () => {
         //                 <Buscador numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} />
         //             </div>
         //         </header>
-        //         <section id='tarjetas'>
-        //             <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} />
-        //             <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder} />
-        //             <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice} />
-        //             <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers} />
-        //             {/* <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser} /> */}  {/* Se comento solo para visualizar los ticket de abajo*/}
-        //             <Contador nom_variable={'Ticket Cerrado: '} numberDevice={totalTicketByStatus[0]} />
-        //             <Contador nom_variable={'Ticket Abierto: '} numberDevice={totalTicketByStatus[1]} />
-        //         </section>
+
         //         <section id='tablaForm'>
         //             <section id='tablas'>
         //                 <Table device={Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
