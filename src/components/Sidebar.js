@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import '../css/dashboard.css';
 import logo from '../images/logo.png';
 
-function Sidebar() {
+function Sidebar({ view, setView }) {
+
+  const handleClick = (clic) => {
+   
+    // event.preventDefault(); // Evita la recarga de la página
+    setView(clic);
+    console.log('Enlace clicado! ' + view);
+    
+  }
 
   return (
     <>
@@ -45,34 +53,35 @@ function Sidebar() {
             <ul>
               {/* Inicio */}
               <li> 
-                <a href="" className="active">
-                  <span className="las la-adjust"></span>
+                < a href="#" className="active" onClick={() => handleClick("Inicio")} >
+                  <span className="las la-adjust"></span>                 
                   <span>Inicio</span>
                 </a>
               </li>
               {/* Tickets */}
               <li>
-                <a href="">
+                <a href="#" onClick={() => handleClick("Ticket")} >
                   <span className="las la-ticket-alt"></span>
                   <span>Tickets</span>
                 </a>
               </li>
               {/* Clientes */}
               <li>
-                <a href="">
+                <a href="#" onClick={() => handleClick("Cliente")} >
                   <span className="las la-user-friends"></span>
                   <span>Clientes</span>
                 </a>
               </li>
-              {/* órdenes */}
+              {/* Órdenes */}
               <li>
-                <a href="" >
+                <a href="#" onClick={() => handleClick("Ordenes")} >
                   <span className="las la-calendar"></span>
                   <span>Órdenes</span>
                 </a>
               </li>
+              {/* Cuenta */}
               <li>
-                <a href="">
+                <a href="#" onClick={() => handleClick("Cuenta")} >
                   <span className="las la-user"></span>
                   <span>Cuenta</span>
                 </a>
