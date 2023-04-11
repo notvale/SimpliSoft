@@ -21,6 +21,8 @@ const TablePage = () => {
     /*
         Declaración de useState
     */
+    // useState para hacer el cambio de vista segun Menú Lateral
+    const [view, setView] = useState('');
     // DEVICE: useState para registrar DEVICE
     const [device, setDevice] = useState([]);
     // DEVICE: useState para N° de Device
@@ -151,11 +153,11 @@ const TablePage = () => {
 
         <div>
             {/* Sidebar: Aquí se encuentra el menu lateral */}
-            <Sidebar /> 
+            <Sidebar view = {view} setView = {setView}/> 
             {/* MainContent: Aquí se encuentra la Bienvenida y/o cabecera */}
             <MainContent />
             {/* Main: Aquí se encuentran las tarjetas, cuadro de ingresos y gráficos */}
-            <Main totalTicketByStatus={totalTicketByStatus} numberTicket={numberTicket} />
+            <Main totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} view = {view}/>
         </div>
         // <main>
         //     <section id='ladoIzquierdo'>
