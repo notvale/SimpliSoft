@@ -1,0 +1,81 @@
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*con el translate posicionamos el formulario*/
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #fff;
+    /*background: linear-gradient(120deg, #d5c9b0, #df8415);*/
+    border-radius: 10px;
+    box-shadow: 1px 4px 8px 1px rgba(58, 57, 55, 0.354);
+height: 400px;
+}
+
+.center h1 {
+    text-align: center;
+    padding: 0 0 2px 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #dc9505;
+    font-style: inherit;
+
+}
+
+.txt_field input {
+
+    height: 30px;
+    width: 90%;
+    /*Con el padding el texto dentro del cuadro comienza más a la derecha, pero tb se puede salir del centro*/
+    padding: 20px;
+    background-color: hsla(0, 6%, 81%, 0.95);
+    /*background: linear-gradient(120deg, #ecd7b3, #d6ae7c, #df8415);*/
+    /*font-size:16px;*/
+    /* background-color: #e7e1e1;*/
+    border-color: #626060;
+    border-radius: 15px;
+    margin: 18px;
+    box-shadow: 1px 4px 8px 1px rgba(58, 57, 55, 0.354);
+    border-left: 10px;
+    border-top: 10px;
+    border-right: 10px;
+    border-bottom: 10px;
+}
+
+
+
+.txt_field label {
+    position: top;
+    /*con el top se posicionó la palabra sobre la línea*/
+    padding-left: 5%;
+    top: 60%;
+    left: 30 px;
+    /* color: #514d45; 
+     font-weight: bold; */
+
+    /*con el translate se posicionó la palabra más arriba de la línea
+     transform: translateY(+50%);*/
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+
+}
+
+.btn button {
+    position:absolute;
+    height: 10%;
+    width: 40%; 
+    background: -webkit-linear-gradient(right,  #d5c9b0, #df8415);
+    border-radius: 10px;
+    border-bottom: 10px;
+    border-left: 10px;
+    border-top: 10px;
+    border-right: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+   
+}
