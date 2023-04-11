@@ -1,0 +1,21 @@
+*{
+    margin:0;
+}
+
+.tclientes{
+    background-color:rgb(49, 214, 229);
+    border-radius: 20px;
+    box-shadow: 1px 4px 8px 1px rgba(58, 57, 55, 0.354);
+}
+
+
+
+.tr{
+ height: 10px;
+
+}
+
+ tr:nth-of-type(1) >th{
+    background-color: rgb(191, 190, 204);
+ }
+
