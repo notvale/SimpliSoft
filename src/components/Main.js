@@ -4,6 +4,9 @@ import React, { Fragment } from 'react';
 import Contador from './Contador';
 
 function Main({ totalTicketByStatus, numberTicket, view }) {
+
+  const iconArray = ['las la-eye', 'las la-clock', 'las la-times-circle', 'las la-check-circle'];
+  
   return (
     <Fragment>
       <main>
@@ -11,15 +14,34 @@ function Main({ totalTicketByStatus, numberTicket, view }) {
           <h3 className="section-head">Resumen</h3>
           <div className="analytics">
 
-            {view === 'Ticket' ?
+            {view === 'Ticket' ? // Para la vista de Tickets
               (
                 <>
-                  <Contador nom_variable={'Tickes Abiertos: '} numberDevice={totalTicketByStatus[1]} typeIcon={'las la-eye'} />
-                  <Contador nom_variable={'Tickes Pausados: '} numberDevice={totalTicketByStatus[2]} typeIcon={'las la-clock'} />
-                  <Contador nom_variable={'Tickes Cerrados: '} numberDevice={totalTicketByStatus[0]} typeIcon={'las la-times-circle'} />
-                  <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} typeIcon={'las la-check-circle'} />
+                  <Contador nom_variable={'Tickets Abiertos: '} numberDevice={totalTicketByStatus[1]} typeIcon={iconArray[0]} />
+                  <Contador nom_variable={'Tickets Pausados: '} numberDevice={totalTicketByStatus[2]} typeIcon={iconArray[1]} />
+                  <Contador nom_variable={'Tickets Cerrados: '} numberDevice={totalTicketByStatus[0]} typeIcon={iconArray[2]} />
+                  <Contador nom_variable={'Tickets Totales: '} numberDevice={numberTicket} typeIcon={iconArray[3]} />
                 </>
-              ) : <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket} typeIcon={'las la-check-circle'} />}
+              ) : view === 'Ordenes' ? // Para la vista de Ordenes
+                (
+                  <>
+                    <Contador nom_variable={'Órdenes Abiertos: '} numberDevice={totalTicketByStatus[1]} typeIcon={iconArray[0]} />
+                    <Contador nom_variable={'Órdenes Pausados: '} numberDevice={totalTicketByStatus[2]} typeIcon={iconArray[1]} />
+                    <Contador nom_variable={'Órdenes Cerrados: '} numberDevice={totalTicketByStatus[0]} typeIcon={iconArray[2]} />
+                    <Contador nom_variable={'Órdenes Totales: '} numberDevice={numberTicket} typeIcon={iconArray[3]} />
+                  </>
+                ) : // Para la vista de Inicio
+                (
+                  <>
+                    <Contador nom_variable={'Tickets Totales: '} numberDevice={numberTicket} typeIcon={iconArray[0]} />
+                    <Contador nom_variable={'Órdenes Totales: '} numberDevice={numberTicket} typeIcon={iconArray[0]} />
+                    <Contador nom_variable={'Equipos Totales: '} numberDevice={numberTicket} typeIcon={iconArray[0]} />
+                    <Contador nom_variable={'Usuarios Totales: '} numberDevice={totalTicketByStatus[0]} typeIcon={iconArray[0]} />
+                  </>
+                )
+
+
+            }
 
 
           </div>
