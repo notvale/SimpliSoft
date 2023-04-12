@@ -14,6 +14,7 @@ function MainContent() {
             <p>Revisa los datos de tu negocio en tiempo real<span className="las la-charts"></span></p>
           </div>
         </div>
+        
         <div className="header-action">
           <button className="btn btn-main">
             <span className="las la-user"></span>
