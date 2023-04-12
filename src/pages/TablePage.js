@@ -13,7 +13,7 @@ import {
     numberOfDevicesService, numberOfDevicesByUsernameService
 } from '../services/DeviceService';
 import { numberOfTicketsService, numberOfTicketByStatusService } from '../services/TicketService';
-import { numberOfOrdersService, registerOrderService } from '../services/OrderService';
+import { numberOfOrdersService, registerOrderService, numberOfOrdersByStatusService } from '../services/OrderService';
 import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService } from '../services/UserService';
 import "../css/PageTable.css"
 
@@ -22,7 +22,7 @@ const TablePage = () => {
         Declaración de useState
     */
     // useState para hacer el cambio de vista segun Menú Lateral
-    const [view, setView] = useState('');
+    const [view, setView] = useState('General');
     // DEVICE: useState para registrar DEVICE
     const [device, setDevice] = useState([]);
     // DEVICE: useState para N° de Device
@@ -37,6 +37,8 @@ const TablePage = () => {
     const [numberTicket, setNumberTicket] = useState(0);
     // TICKET: useState para N° de Tickets por status
     const [totalTicketByStatus, setTotalTicketByStatus] = useState([]);
+    // ORDER: useState para N° de Ordenes por status
+    const [numberStatusOrder, setNumberStatusOrder] = useState([]);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
     // USER: useState para mostrar a los usuarios segun su role
@@ -60,6 +62,7 @@ const TablePage = () => {
         numberOfUsersPage();
         numberOfUserstByRolePage();
         numberOfTicketByStatusPage();
+        numberOfOrdersByStatusPage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -110,11 +113,17 @@ const TablePage = () => {
     //-----------------------------
     // Funciones para las órdenes
     //-----------------------------
-    // TICKET: Funcion que retorna la cantidad de Órdenes totales
+    // ORDER: Funcion que retorna la cantidad de Órdenes totales
     const numberOfOrdersPage = async () => {
         setNumberOrder(await numberOfOrdersService());
 
-        console.log('cantidad de tickets' + numberTicket);
+        console.log('Total de ordenes: ' + numberOrder);
+    }
+    // ORDER: Función que retorna la cantidad de ordenes por status
+    const numberOfOrdersByStatusPage = async () => {
+        setNumberStatusOrder(await numberOfOrdersByStatusService());
+
+        console.log('OrderPage por status: ' + numberStatusOrder);
     }
     //----------------------------------------------------
     // Funciones para los Usuarios
@@ -157,44 +166,10 @@ const TablePage = () => {
             {/* MainContent: Aquí se encuentra la Bienvenida y/o cabecera */}
             <MainContent />
             {/* Main: Aquí se encuentran las tarjetas, cuadro de ingresos y gráficos */}
-            <Main totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} view = {view}/>
+            <Main totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} view = {view} 
+                numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} 
+                numberOfUsers = {numberOfUsers} numberDevice ={numberDevice} />
         </div>
-        // <main>
-        //     <section id='ladoIzquierdo'>
-        //     </section>
-
-        //     <section id='ladoDerecho'>
-        //         <header>
-        //             <div className='container-buscador'>
-        //                 <Buscador numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} />
-        //             </div>
-        //         </header>
-
-        //         <section id='tablaForm'>
-        //             <section id='tablas'>
-        //                 <Table device={Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
-        //             </section>
-        //             <section id='formularios'>
-        //                 <Formulario deviceRegisterPage={deviceRegisterPage} />
-        //             </section>
-        //         </section>
-        //     </section>
-        // </main>
-
-
-
-
-
-
-
-
-
-        // <div> 
-        //     <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice}  />
-        //     <Contador nom_variable={'Tickes Totales: '} numberDevice={numberTicket}  />
-        //     <Contador nom_variable={'Ordenes Totales: '} numberDevice={numberOrder}  />
-        //     <Contador nom_variable={'Equipos por nombre: '} numberDevice={totalByUser}  />
-        //     <Contador nom_variable={'Usuarios totales: '} numberDevice={numberOfUsers}  />
 
 
         //     <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} />
@@ -206,8 +181,6 @@ const TablePage = () => {
         //         <Formulario deviceRegisterPage={deviceRegisterPage}/>
         //     </div>
 
-
-        // </div>
 
 
 
