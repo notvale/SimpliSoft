@@ -25,7 +25,8 @@ const TablePage = () => {
     const [view, setView] = useState('General');
     // DEVICE: useState para registrar DEVICE
     const [device, setDevice] = useState([]);
-    // DEVICE: useState para N° de Device
+    // DEVICE: useState que toma el nombre del buscador
+    const [username, setUsername] = useState('');
     const [numberDevice, setNumberDevice] = useState(0);
     // DEVICE: useState para mostrar los equipos de un usuario
     const [deviceByUser, setDeviceByUser] = useState({});
@@ -162,13 +163,16 @@ const TablePage = () => {
 
         <div>
             {/* Sidebar: Aquí se encuentra el menu lateral */}
-            <Sidebar view = {view} setView = {setView}/> 
+            <Sidebar view = {view} setView = {setView} /> 
             {/* MainContent: Aquí se encuentra la Bienvenida y/o cabecera */}
             <MainContent />
             {/* Main: Aquí se encuentran las tarjetas, cuadro de ingresos y gráficos */}
             <Main totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} view = {view} 
                 numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} 
-                numberOfUsers = {numberOfUsers} numberDevice ={numberDevice} />
+                numberOfUsers = {numberOfUsers} numberDevice ={numberDevice} 
+                deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} device = {device}
+                username={username} setUsername={setUsername} 
+                numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}/>
         </div>
 
 
