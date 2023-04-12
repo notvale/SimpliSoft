@@ -6,10 +6,11 @@ import Profit from './Profit';
 import Grafico from './Grafico';
 import Table from '../components/Table';
 import Buscador from '../components/Buscador';
+import TableTicket from './TableTicket';
 
 function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStatusOrder, numberOfUsers, numberDevice,
                 deviceDeletePage, deviceByUser, device, numberOfDevicesByUsernamePage, findAllDevicesByUsernamePage,
-                username, setUsername }) {
+                username, setUsername, tickets }) {
 
   const iconArray = ['las la-eye', 'las la-clock', 'las la-times-circle', 'las la-check-circle'];
 
@@ -61,7 +62,7 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
           </div>
         </section>
 
-        {view === 'General' ? // Para la vista de Tickets
+        {view === 'General' ? // Vista General
           (
             <section>
               <div className="block-grid">
@@ -69,6 +70,13 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
                 <Profit />
                 {/* Gráfico */}
                 <Grafico />
+              </div>
+            </section>
+          ): view === 'de Tickets' ? // Tabla de Tickets
+          (
+            <section>
+              <div className="block-grid">
+                <TableTicket tickets={tickets} />
               </div>
             </section>
           ):

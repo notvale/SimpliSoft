@@ -15,7 +15,6 @@ const statusTickets = {
     2: 'Abierto',
     3: 'Pausado'
 }
-
 // 2- GET: Retorna cantidad de tickets por status
 const numberOfTicketByStatusService = async (status) => {
     const statusArray = [];
@@ -30,4 +29,14 @@ const numberOfTicketByStatusService = async (status) => {
     }
     return statusArray;
 }
-export { numberOfTicketsService, numberOfTicketByStatusService };
+// 3- GET: Retorna los Tickets registrados
+const  getTicketService = async () => {
+    const rest = await axios.get(baseURL + '/ticket/findAll');
+    console.log("Tickets: " + rest);
+    return rest.data
+}   
+
+
+
+
+export { numberOfTicketsService, numberOfTicketByStatusService, getTicketService };
