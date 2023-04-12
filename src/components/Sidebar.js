@@ -53,30 +53,30 @@ function Sidebar({ view, setView }) {
             <ul>
               {/* Inicio */}
               <li> 
-                < a href="#" className="active" onClick={() => handleClick("Inicio")} >
+                < a href="#" className="active" onClick={() => handleClick("General")} >
                   <span className="las la-adjust"></span>                 
                   <span>Inicio</span>
                 </a>
               </li>
               {/* Tickets */}
               <li>
-                <a href="#" onClick={() => handleClick("Ticket")} >
+                <a href="#" onClick={() => handleClick("de Tickets")} >
                   <span className="las la-ticket-alt"></span>
                   <span>Tickets</span>
                 </a>
               </li>
-              {/* Clientes */}
-              <li>
-                <a href="#" onClick={() => handleClick("Cliente")} >
-                  <span className="las la-user-friends"></span>
-                  <span>Clientes</span>
-                </a>
-              </li>
               {/* Órdenes */}
               <li>
-                <a href="#" onClick={() => handleClick("Ordenes")} >
+                <a href="#" onClick={() => handleClick("de Órdenes")} >
                   <span className="las la-calendar"></span>
                   <span>Órdenes</span>
+                </a>
+              </li>
+              {/* Clientes */}
+              <li>
+                <a href="#" onClick={() => handleClick("de Usuarios")} >
+                  <span className="las la-user-friends"></span>
+                  <span>Clientes</span>
                 </a>
               </li>
               {/* Cuenta */}

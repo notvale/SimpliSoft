@@ -16,5 +16,28 @@ const registerOrderService = async (order) => {
     console.log(rest);
     return rest.data;
 }
+// const statusOrders = {
+//     1: 'Sin Revisar',
+//     2: 'Diagnosticado',
+//     3: 'Reparado'
+// }
+// Otra forma de resolver y manejar lo status
+const statusOrders = ['Sin Revisar', 'Diagnosticado', 'Reparado'];
 
-export {numberOfOrdersService, registerOrderService};
+// 3- GET: que retorna la cantidad de ordenes por status
+const numberOfOrdersByStatusService = async () => {
+    const statusArrayOrder = []; // Array para almacenar los datos del rest.data
+    
+    for (let i = 0; i < statusOrders.length; i++) {
+        const rest = await axios.get(baseURL + '/order/totalByStatus/' + statusOrders[i]);
+
+        statusArrayOrder.push(rest.data);
+         
+        console.log("statusArrayOrder: " + statusArrayOrder);
+    }
+    return statusArrayOrder;
+}
+
+
+
+export { numberOfOrdersService, registerOrderService, numberOfOrdersByStatusService };
