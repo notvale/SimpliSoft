@@ -7,10 +7,11 @@ import Grafico from './Grafico';
 import Table from '../components/Table';
 import Buscador from '../components/Buscador';
 import TableTicket from './TableTicket';
+import TableOrder from './TableOrder';
 
 function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStatusOrder, numberOfUsers, numberDevice,
                 deviceDeletePage, deviceByUser, device, numberOfDevicesByUsernamePage, findAllDevicesByUsernamePage,
-                username, setUsername, tickets }) {
+                username, setUsername, tickets,order }) {
 
   const iconArray = ['las la-eye', 'las la-clock', 'las la-times-circle', 'las la-check-circle'];
 
@@ -81,9 +82,10 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
             </section>
           ):
           (
-            <section>
+            <section> 
               <div className="block-grid">
                 <Table device = {Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
+                <TableOrder order={order} />
               </div>
             </section>
           )

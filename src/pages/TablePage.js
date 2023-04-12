@@ -9,7 +9,7 @@ import {
     numberOfDevicesService, numberOfDevicesByUsernameService
 } from '../services/DeviceService';
 import { numberOfTicketsService, numberOfTicketByStatusService,getTicketService } from '../services/TicketService';
-import { numberOfOrdersService, registerOrderService, numberOfOrdersByStatusService } from '../services/OrderService';
+import { numberOfOrdersService,getOrderService, registerOrderService, numberOfOrdersByStatusService } from '../services/OrderService';
 import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService } from '../services/UserService';
 import "../css/PageTable.css"
 
@@ -40,6 +40,8 @@ const TablePage = () => {
     const [numberStatusOrder, setNumberStatusOrder] = useState([]);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
+    // ORDER: useState que guarda las Ordenes registradas
+    const [order, setOrder] = useState({});
     // USER: useState para mostrar a los usuarios segun su role
     const [userByRole, setUserByRole] = useState({});
     // USER: useState para N° de usuarios totales
@@ -63,6 +65,7 @@ const TablePage = () => {
         numberOfTicketByStatusPage();
         numberOfOrdersByStatusPage();
         getTicketPage();
+        getOrderPage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -130,6 +133,11 @@ const TablePage = () => {
 
         console.log('OrderPage por status: ' + numberStatusOrder);
     }
+    // ORDER: Función que retorna las Ordenes registradas
+    const getOrderPage = async () => {
+        setOrder(await getOrderService());
+        console.log("Ordenes : " + order);
+    }
     //----------------------------------------------------
     // Funciones para los Usuarios
     //---------------------------------------------------
@@ -171,12 +179,13 @@ const TablePage = () => {
             {/* MainContent: Aquí se encuentra la Bienvenida y/o cabecera */}
             <MainContent />
             {/* Main: Aquí se encuentran las tarjetas, cuadro de ingresos y gráficos */}
-            <Main totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} tickets= {tickets} view = {view} 
-                numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} 
-                numberOfUsers = {numberOfUsers} numberDevice ={numberDevice} 
-                deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} device = {device}
-                username={username} setUsername={setUsername} 
-                numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}
+            <Main 
+                view = {view} 
+                totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} tickets= {tickets} 
+                numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} order = {order}
+                numberDevice ={numberDevice} deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} 
+                device = {device} username={username} setUsername={setUsername}  
+                numberOfUsers = {numberOfUsers} numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}
             />
         </div>
 

@@ -38,6 +38,12 @@ const numberOfOrdersByStatusService = async () => {
     return statusArrayOrder;
 }
 
+// 4- GET: Retorna las Ordenes registradas
+const getOrderService = async () => {
+    const rest = await axios.get(baseURL + '/order/findAll');
+    console.log(rest);
+    return rest.data;   
+}
 
 
-export { numberOfOrdersService, registerOrderService, numberOfOrdersByStatusService };
+export { getOrderService, numberOfOrdersService, registerOrderService, numberOfOrdersByStatusService };
