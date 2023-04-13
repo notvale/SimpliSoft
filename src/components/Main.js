@@ -17,7 +17,7 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
 
   return (
     <Fragment>
-      <main>
+      <main className='mainDashboard'>
         <section>
           
             <h3 className="section-head">Resumen {view}</h3>

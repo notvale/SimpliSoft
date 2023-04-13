@@ -6,8 +6,8 @@ import LogovectorLogoNav from '../images/Assets/LogovectorLogoNav.svg';
 const HeaderLanding = () => {
 
     return (
-        <header id="header" class="header">
-            <img src={LogovectorLogoNav} class="logo" alt="SimpliSoft" id="header-img" />
+        <header id="header" class="headerLanding">
+            <img src={LogovectorLogoNav} class="logoLanding" alt="SimpliSoft" id="header-img" />
             <nav id="nav-bar" class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">

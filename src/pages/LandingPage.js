@@ -13,7 +13,7 @@ const LandingPage = () => {
     return (
         <div>
             <HeaderLanding/>
-            <main>
+            <main className='mainLanding'>
                 <SeccionOne/>
                 <SeccionTwo/>
                 <SeccionThree/>
