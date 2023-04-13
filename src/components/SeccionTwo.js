@@ -10,10 +10,10 @@ const SeccionTwo = () => {
         <section id="features" class="features">
         <div>
             <h1 class="features__title_1">
-                Por qué
+                ¿Porqué
             </h1>
             <h1 class="features__title_2">
-                escogernos
+                escogernos?
             </h1>
             <p class="features__subtitle">
                 SimpliSoft una solución completa de gestión de tickets que le permite llevar un seguimiento de los
