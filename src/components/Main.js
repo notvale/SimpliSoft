@@ -80,12 +80,19 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
                 <TableTicket tickets={tickets} />
               </div>
             </section>
+          ): view === 'de Órdenes' ? // Tabla de Órdenes
+          (
+            <section>
+              <div className="block-grid">
+                <TableOrder order={order} />
+              </div>
+            </section>
           ):
           (
             <section> 
               <div className="block-grid">
                 <Table device = {Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
-                <TableOrder order={order} />
+                
               </div>
             </section>
           )

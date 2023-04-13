@@ -12,17 +12,13 @@ const TableOrder = ({ order, deviceDeletePage }) => { //usamos el mismo promp qu
                         <th>Informe Inicial</th>
                         <th>Informe Técnico</th>
                         <th>Adjuntar</th>
-                        <th>ID Equipo</th>
+                        {/* <th>ID Equipo</th>
                         <th>ID Ticket </th>
-                        <th>ID Orden </th>
-                        <th>Última Actualización </th>
+                        <th>ID Orden </th> */}
                         <th>Fecha de Creación </th>
+                        <th>Última Actualización </th>
                         <th>Estado </th>
                         <th>Acciones </th>
-
-
-
-
                     </tr>
                 </thead>
                 <tbody>
@@ -32,13 +28,12 @@ const TableOrder = ({ order, deviceDeletePage }) => { //usamos el mismo promp qu
                             <td>{e.commentInitial}</td>
                             <td>{e.commentTechnical}</td>
                             <td>{e.files}</td>
-                            <td>{e.fkIdDevice}</td>
+                            {/* <td>{e.fkIdDevice}</td>
                             <td>{e.fkIdTicket}</td>
-                            <td>{e.idOrderService}</td>
-                            <td>{e.orderCloseDate}</td>
+                            <td>{e.idOrderService}</td> */}
                             <td>{e.orderCreationDate}</td>
+                            <td>{e.orderCloseDate}</td>
                             <td>{e.statusOrder}</td>
-
                             <td>
                                 <button type="button" class="btn btn-warning">Editar</button>
                                 <button type="button" class="btn btn-danger" onClick={() =>deviceDeletePage(e.idDevice)}>Eliminar</button>
