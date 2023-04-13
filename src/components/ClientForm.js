@@ -3,18 +3,23 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 const clientInit={
+  "idUser":0,
   "rut":"", 
   "username":"",
+  "userPassword":"",
   "email":"",
-  "phone":"",
-  "address":""
-  
+  "address":"",
+  "userStatus":"",
+  "phone":0,
+  "fkIdRole":0,
+  "accountNonLocked":"",
+
 }
 
-const ClientForm =(agregarCliente)=>{
+const ClientForm =()=>{
 
-  const [cliente, setCliente] = useState(clientInit);
-  const {rut, ussername, email, phone, address} = cliente;
+  const [clientes, setClientes] = useState(clientInit);
+  const {rut, ussername, email, phone, address, } = clientes; //FALTA AGREGAR 
 
   const handleInputChange = (c) =>{
     console.log(c);

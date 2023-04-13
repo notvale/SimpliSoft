@@ -27,7 +27,7 @@ const numberOfUserstByRoleService = async () => {
 
 // Funciones Vale
 
-// 4- GET: Retorna usuarios registrados en la BD
+// 4- GET: Retorna usuarios registrados en la BD // Lo estoy usando
 
 const AllUserService = async () => {
     const rest = await axios.get(baseURL + '/findAll');
@@ -59,9 +59,17 @@ const UserByRoleService = async (role) => {
     return rest.data;
 }
 
+// 8 - POST : Registro // Lo voy a usar
+
+const AddUserService = async (clientes) => {
+    const rest = await axios.post(baseURL+"/register",clientes)
+    console.log(rest);
+    return rest.data;
+}
 
 
-export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService, AllUserService, UserByIdService, UserByRutService, UserByRoleService};
+
+export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService, AllUserService, UserByIdService, UserByRutService, UserByRoleService, AddUserService};
 
 // Java AuthController
 

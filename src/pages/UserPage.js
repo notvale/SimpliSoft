@@ -3,36 +3,27 @@ import React from 'react';
 import { ClientTable } from '../components/ClientTable';
 // import { ClientForm } from '../components/ClientForm';
 import { useEffect, useState } from "react";
-import { AllUserService } from '../services/UserService';
+import { AddUserService, AllUserService } from '../services/UserService';
 
 const UserPage = () => {
 
-//UseState
-    const [clientes, setClientes] = useState({});
+    const [clientes, setClientes] = useState(null); //UseState
 
-    //esta fx permite traer todos los datos de la api para que la agreguemos a la tabla,
-    //y se debe agregar un fx qu eva  aahacer funcionar a la fx creada en service.
-    const AllUserPage = async () => {
+    const AllUserPage = async () => {   //fx que permite traer los datos de la api. Además, se debe agregar un fx que va a hacer funcionar a la fx creada en service. 
         setClientes(await AllUserService());
-        console.log("clientePage"+clientes); 
+        // console.log("clientePage"+clientes); 
     }
 
-    // const agregarCliente = async (cliente) => {
-    //     await addClient(cliente);
-    //     //llamando a la fx obtener cliente, hago que cada vez que se recargue la página, se va a obtener los clientes
-    //     obtenerCliente();
-    // }
+    const AddUserPage = async (clientes) => {
+        await AddUserService(clientes);
+    }
 
-    // const editarCliente = async()=>{
-    //     await editClient();
-    // }
-
-//UseEffect 
+    //UseEffect 
 
     useEffect(() => {
-        console.log(clientes)
-        //setCliente("Nuevo Cliente");
-        setClientes("nuevo cliente")
+        AllUserPage();
+        AddUserPage();
+        // setClientes("nuevo cliente")
     }, [])
 
 
@@ -43,6 +34,7 @@ const UserPage = () => {
                 <div className='row'>
                     <div className='col-6'>
                         <ClientTable clientes={clientes} />
+                        <h1>TABLA </h1>
                     </div>
                     <div className='col-6' />
                     {/* <ClientForm agregarCliente={agregarCliente} /> */}
@@ -54,5 +46,5 @@ const UserPage = () => {
 }
 
 
-export { UserPage}
+export { UserPage }
 
