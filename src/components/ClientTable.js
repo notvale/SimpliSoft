@@ -6,10 +6,10 @@ const ClientTable = ({ clientes }) => {
         <div>
             <h3>Clientes</h3>
             <table class="tclientes">
-                /* <thead>
+                <thead>
     <tr>
-        <th scope="col">Id User</th>
-        <th scope="col">RUT</th>
+        <th>Id User</th>
+        <th>RUT</th>
         <th scope="col">Nombre</th>
         <th scope="col">Contraseña</th>
         <th scope="col">Email</th>
@@ -23,7 +23,7 @@ const ClientTable = ({ clientes }) => {
 </thead>
 <tbody>
 
-    {/* {clientes.map(c => (
+     {clientes.map(c => (
         <tr>
              <td>{c.idUser}</td>
             <td>{c.rut}</td>
@@ -39,7 +39,7 @@ const ClientTable = ({ clientes }) => {
             <button type="button" class="btn btn-outline-info" >Eliminar</button></td>
         </tr>
 
-    ))} */}
+    ))} 
 
 </tbody>
 </table>
