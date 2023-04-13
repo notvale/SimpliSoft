@@ -1,11 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import HeaderLanding from '../components/HeaderLanding';
+import SeccionOne from '../components/SeccionOne';
+import SeccionTwo from '../components/SeccionTwo';
+import SeccionThree from '../components/SeccionThree';
+import SeccionFour from '../components/SeccionFour';
+import Footer from '../components/Footer';
+
+import '../css/style.css'
+
 
 const LandingPage = () => {
     return (
         <div>
-<h1>hola esta es la landing</h1>
-<Link to ='/LoginPage'><button class="btn btn-primary" type="button">Login</button></Link>
+            <HeaderLanding/>
+            <main>
+                <SeccionOne/>
+                <SeccionTwo/>
+                <SeccionThree/>
+                <SeccionFour/>
+                <Footer/>
+            </main>
 
         </div>
     )

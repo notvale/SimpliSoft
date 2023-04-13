@@ -1,9 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-// import Table from '../components/Table';
-// import Contador from '../components/Contador';
-// import Formulario from '../components/Formulario';
-// import Buscador from '../components/Buscador';
 import Sidebar from '../components/Sidebar';
 import MainContent from '../components/MainContent';
 import Main from '../components/Main';
@@ -12,8 +8,8 @@ import {
     deviceFindAllService, deviceRegisterService, deviceUpdateService, deviceDeleteService, findAllDevicesByUsernameService,
     numberOfDevicesService, numberOfDevicesByUsernameService
 } from '../services/DeviceService';
-import { numberOfTicketsService, numberOfTicketByStatusService } from '../services/TicketService';
-import { numberOfOrdersService, registerOrderService, numberOfOrdersByStatusService } from '../services/OrderService';
+import { numberOfTicketsService, numberOfTicketByStatusService,getTicketService } from '../services/TicketService';
+import { numberOfOrdersService,getOrderService, registerOrderService, numberOfOrdersByStatusService } from '../services/OrderService';
 import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService } from '../services/UserService';
 import "../css/PageTable.css"
 
@@ -38,10 +34,14 @@ const TablePage = () => {
     const [numberTicket, setNumberTicket] = useState(0);
     // TICKET: useState para N° de Tickets por status
     const [totalTicketByStatus, setTotalTicketByStatus] = useState([]);
+    //TICKET: useState que almacena todos Tickets
+    const [tickets, setTickets] = useState({});
     // ORDER: useState para N° de Ordenes por status
     const [numberStatusOrder, setNumberStatusOrder] = useState([]);
     // ORDER: useState para N° de Ordenes
     const [numberOrder, setNumberOrder] = useState(0);
+    // ORDER: useState que guarda las Ordenes registradas
+    const [order, setOrder] = useState({});
     // USER: useState para mostrar a los usuarios segun su role
     const [userByRole, setUserByRole] = useState({});
     // USER: useState para N° de usuarios totales
@@ -64,6 +64,8 @@ const TablePage = () => {
         numberOfUserstByRolePage();
         numberOfTicketByStatusPage();
         numberOfOrdersByStatusPage();
+        getTicketPage();
+        getOrderPage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -111,6 +113,11 @@ const TablePage = () => {
         console.log('statusPage: ' + numberTicket);
 
     }
+    // TICKET: Función que retorna todos los tickets
+    const getTicketPage = async () => {
+        setTickets(await getTicketService());
+        console.log("ticketsPage:" + tickets);
+    }
     //-----------------------------
     // Funciones para las órdenes
     //-----------------------------
@@ -125,6 +132,11 @@ const TablePage = () => {
         setNumberStatusOrder(await numberOfOrdersByStatusService());
 
         console.log('OrderPage por status: ' + numberStatusOrder);
+    }
+    // ORDER: Función que retorna las Ordenes registradas
+    const getOrderPage = async () => {
+        setOrder(await getOrderService());
+        console.log("Ordenes : " + order);
     }
     //----------------------------------------------------
     // Funciones para los Usuarios
@@ -167,12 +179,14 @@ const TablePage = () => {
             {/* MainContent: Aquí se encuentra la Bienvenida y/o cabecera */}
             <MainContent />
             {/* Main: Aquí se encuentran las tarjetas, cuadro de ingresos y gráficos */}
-            <Main totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} view = {view} 
-                numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} 
-                numberOfUsers = {numberOfUsers} numberDevice ={numberDevice} 
-                deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} device = {device}
-                username={username} setUsername={setUsername} 
-                numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}/>
+            <Main 
+                view = {view} 
+                totalTicketByStatus = {totalTicketByStatus} numberTicket = {numberTicket} tickets= {tickets} 
+                numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} order = {order}
+                numberDevice ={numberDevice} deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} 
+                device = {device} username={username} setUsername={setUsername}  
+                numberOfUsers = {numberOfUsers} numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}
+            />
         </div>
 
 
