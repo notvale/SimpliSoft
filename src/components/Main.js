@@ -12,7 +12,7 @@ import TableUser from './TableUser';
 
 function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStatusOrder, numberOfUsers, numberDevice,
                 deviceDeletePage, deviceByUser, device, numberOfDevicesByUsernamePage, findAllDevicesByUsernamePage,
-                username, setUsername, tickets,order, user }) {
+                username, setUsername, tickets,order, user, totalByRole }) {
 
   const iconArray = ['las la-eye', 'las la-clock', 'las la-times-circle', 'las la-check-circle'];
 
@@ -38,9 +38,9 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
               ) : view === 'de Usuarios' ? // Para la vista de Ordenes
                 (
                   <>
-                    <Contador nom_variable={'Clientes: '} numberDevice={numberStatusOrder[0]} typeIcon={iconArray[0]} />
-                    <Contador nom_variable={'Técnicos: '} numberDevice={numberStatusOrder[1]} typeIcon={iconArray[1]} />
-                    <Contador nom_variable={'Administradores: '} numberDevice={numberStatusOrder[2]} typeIcon={iconArray[2]} />
+                    <Contador nom_variable={'Clientes: '} numberDevice={totalByRole[2]} typeIcon={iconArray[0]} />
+                    <Contador nom_variable={'Técnicos: '} numberDevice={totalByRole[1]} typeIcon={iconArray[1]} />
+                    <Contador nom_variable={'Administradores: '} numberDevice={totalByRole[0]} typeIcon={iconArray[2]} />
                     <Contador nom_variable={'Totales: '} numberDevice={numberOfUsers} typeIcon={iconArray[3]} />
                   </>
                 ) : view === 'de Órdenes' ? // Para la vista de Ordenes

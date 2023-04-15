@@ -45,7 +45,7 @@ const TablePage = () => {
     // USER: useState para mostrar a los usuarios segun su role
     const [userByRole, setUserByRole] = useState({});
     // USER: useState para N° de usuarios por Role
-    const [totalByRole, setTotalByRole] = useState(0);
+    const [totalByRole, setTotalByRole] = useState([]);
     // USER: useState para N° de usuarios totales
     const [numberOfUsers, setNumberOfUsers] = useState(0);
     // USER: useState para guardar a los Usuarios registrados
@@ -193,7 +193,8 @@ const TablePage = () => {
                 numberDevice ={numberDevice} deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} 
                 device = {device} username={username} setUsername={setUsername}  
                 numberOfUsers = {numberOfUsers} numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} 
-                findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} user={user}
+                findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} user={user} totalByRole = {totalByRole}
+
             />
         </div>
 

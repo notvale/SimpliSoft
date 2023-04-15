@@ -2,7 +2,7 @@ import axios from "axios"; // Se importa para poder consumir APIs
 const baseURL = 'http://localhost:8080';
 
 
-// 1- GET: Retorna cantidad de Ordenes totales
+// 1- GET: Retorna cantidad de Ordenes totales --> (OK)
 const numberOfOrdersService = async () => {
     const rest = await axios.get(baseURL + '/order/total');
     console.log("cantidad de Ordenes");
@@ -24,7 +24,7 @@ const registerOrderService = async (order) => {
 // Otra forma de resolver y manejar lo status
 const statusOrders = ['Sin Revisar', 'Diagnosticado', 'Reparado'];
 
-// 3- GET: que retorna la cantidad de ordenes por status
+// 3- GET: que retorna la cantidad de ordenes por status --> (OK)
 const numberOfOrdersByStatusService = async () => {
     const statusArrayOrder = []; // Array para almacenar los datos del rest.data
     
@@ -38,7 +38,7 @@ const numberOfOrdersByStatusService = async () => {
     return statusArrayOrder;
 }
 
-// 4- GET: Retorna las Ordenes registradas
+// 4- GET: Retorna las Ordenes registradas --> (OK)
 const getOrderService = async () => {
     const rest = await axios.get(baseURL + '/order/findAll');
     console.log(rest);

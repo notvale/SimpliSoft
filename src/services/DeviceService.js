@@ -12,14 +12,14 @@ const baseURL = 'http://localhost:8080';
 //     "fkIdUser": 1
 // }
 
-// 1- GET: Método que retorna todos los equipos
+// 1- GET: Método que retorna todos los equipos --> (OK)
 const deviceFindAllService = async () => {
     const rest = await axios.get(baseURL + '/device/findAll');
     console.log(rest);
     return rest.data;
 }
 
-// 2- POST: Método para ingresar/registrar datos a la BD
+// 2- POST: Método para ingresar/registrar datos a la BD --> (OK)
 const deviceRegisterService = async (device) => {
     const rest = await axios.post(baseURL + '/device/register', device);
     console.log(rest);
@@ -33,14 +33,14 @@ const deviceUpdateService = async (device) => {
     return rest.data;
 }
 
-// 4- DELETE: Método para Eliminar/Borrar un equipo 
+// 4- DELETE: Método para Eliminar/Borrar un equipo --> (OK)
 const deviceDeleteService = async (id) => {
     const rest = await axios.delete(baseURL + '/device/delete/' + id);
     console.log(rest);
     return rest.data;
 }
 
-// 5- GET: Retorna cantidad de equipos totales
+// 5- GET: Retorna cantidad de equipos totales --> (OK)
 const numberOfDevicesService = async () => {
     const rest = await axios.get(baseURL + '/device/total');
     console.log("cantidad de equipos");
@@ -48,7 +48,7 @@ const numberOfDevicesService = async () => {
     return rest.data
 }
 
-// 6- GET: Retorna cantidad de equipos por Usuario
+// 6- GET: Retorna cantidad de equipos por Usuario --> (OK)
 const numberOfDevicesByUsernameService = async (username) => {
     
     const rest = await axios.get(baseURL + '/device/totalByUser/' + username);
@@ -56,7 +56,7 @@ const numberOfDevicesByUsernameService = async (username) => {
     return rest.data
 }
 
-// 7- GET: Retorna todos los equipos asociados a un username
+// 7- GET: Retorna todos los equipos asociados a un username --> (OK)
 const findAllDevicesByUsernameService = async (username) => {
     const rest = await axios.get(baseURL + '/device/' + username);
     console.log('roleService: ' + rest);
