@@ -8,10 +8,11 @@ import Table from '../components/Table';
 import Buscador from '../components/Buscador';
 import TableTicket from './TableTicket';
 import TableOrder from './TableOrder';
+import TableUser from './TableUser';
 
 function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStatusOrder, numberOfUsers, numberDevice,
                 deviceDeletePage, deviceByUser, device, numberOfDevicesByUsernamePage, findAllDevicesByUsernamePage,
-                username, setUsername, tickets,order }) {
+                username, setUsername, tickets,order, user }) {
 
   const iconArray = ['las la-eye', 'las la-clock', 'las la-times-circle', 'las la-check-circle'];
 
@@ -85,6 +86,13 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
             <section>
               <div className="block-grid">
                 <TableOrder order={order} />
+              </div>
+            </section>
+          ): view === 'de Usuarios' ? // Tabla de Órdenes
+          (
+            <section>
+              <div className="block-grid">
+                <TableUser user={user} />
               </div>
             </section>
           ):

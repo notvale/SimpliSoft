@@ -3,7 +3,6 @@ const baseURL = 'http://localhost:8080/auth';
 
 
 // 1- GET: Retorna los usuarios sugun Rol
-
 const UserstByRoleService = async () => {
     const rest = await axios.get(baseURL + '/byRole/Cliente');
     console.log('roleService: ' + rest);
@@ -24,4 +23,11 @@ const numberOfUserstByRoleService = async () => {
     return rest.data;
 }
 
-export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService};
+// 4- GET: Para obtener Usuarios registrados en la BD
+const findAllUsersService = async () => {
+    const rest = await axios.get(baseURL + '/findAll');
+    console.log('UsuariosRegistrados: ' + rest);
+    return rest.data;   
+} 
+
+export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService, findAllUsersService};
