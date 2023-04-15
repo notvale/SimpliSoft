@@ -185,22 +185,14 @@ const TablePage = () => {
                 numberOrder= {numberOrder} numberStatusOrder = {numberStatusOrder} order = {order}
                 numberDevice ={numberDevice} deviceDeletePage={deviceDeletePage} deviceByUser = {deviceByUser} 
                 device = {device} username={username} setUsername={setUsername}  
-                numberOfUsers = {numberOfUsers} numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}
+                numberOfUsers = {numberOfUsers} numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} 
+                findAllDevicesByUsernamePage={findAllDevicesByUsernamePage}
             />
         </div>
 
-
-        //     <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} />
-
-        //     <div>
-        //         <Table device = {Object.keys(deviceByUser).length === 0 ? device : deviceByUser} deviceDeletePage={deviceDeletePage} />
-        //     </div>
         //     <div>
         //         <Formulario deviceRegisterPage={deviceRegisterPage}/>
         //     </div>
-
-
-
 
 
 

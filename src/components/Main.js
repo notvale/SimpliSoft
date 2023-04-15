@@ -20,7 +20,7 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
       <main className='mainDashboard'>
         <section>
           
-            <h3 className="section-head">Resumen {view}</h3>
+            <h3 className="section-head">Resumen { view } </h3>
             {/* Buscador que filtra por nombre del cliente */}
             <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} 
               findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} username={username} setUsername={setUsername}/>

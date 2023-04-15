@@ -29,6 +29,10 @@ body {
   background-color: var(--lightGrey);
   font-family: var(--familyRoboto);
   line-height: 1.6;
+  /* padding-top: 80px; */
+}
+
+.mainLanding {
   padding-top: 80px;
 }
 
