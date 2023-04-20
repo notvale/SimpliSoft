@@ -9,10 +9,11 @@ import Buscador from '../components/Buscador';
 import TableTicket from './TableTicket';
 import TableOrder from './TableOrder';
 import TableUser from './TableUser';
+import FormUser from './FormUser';
 
 function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStatusOrder, numberOfUsers, numberDevice,
                 deviceDeletePage, deviceByUser, device, numberOfDevicesByUsernamePage, findAllDevicesByUsernamePage,
-                username, setUsername, tickets,order, user, totalByRole }) {
+                username, setUsername, tickets,order, user, totalByRole, registerUsersPage, deleteUserPage }) {
 
   const iconArray = ['las la-eye', 'las la-clock', 'las la-times-circle', 'las la-check-circle'];
 
@@ -26,6 +27,7 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
             <Buscador numberOfDevicesByUsernamePage = {numberOfDevicesByUsernamePage} 
               findAllDevicesByUsernamePage = {findAllDevicesByUsernamePage} username={username} setUsername={setUsername}/>
 
+          {/* div es para la visualización de las tarjetas */}
           <div className="analytics">
             {view === 'de Tickets' ? // Para la vista de Tickets
               (
@@ -35,35 +37,35 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
                   <Contador nom_variable={'Cerrados: '} numberDevice={totalTicketByStatus[0]} typeIcon={iconArray[2]} />
                   <Contador nom_variable={'Totales: '} numberDevice={numberTicket} typeIcon={iconArray[3]} />
                 </>
-              ) : view === 'de Usuarios' ? // Para la vista de Ordenes
-                (
+              ) : view === 'de Usuarios' ? // Para la vista de Usuarios
+              (
                   <>
                     <Contador nom_variable={'Clientes: '} numberDevice={totalByRole[2]} typeIcon={iconArray[0]} />
                     <Contador nom_variable={'Técnicos: '} numberDevice={totalByRole[1]} typeIcon={iconArray[1]} />
                     <Contador nom_variable={'Administradores: '} numberDevice={totalByRole[0]} typeIcon={iconArray[2]} />
                     <Contador nom_variable={'Totales: '} numberDevice={numberOfUsers} typeIcon={iconArray[3]} />
                   </>
-                ) : view === 'de Órdenes' ? // Para la vista de Ordenes
-                  (
+              ) : view === 'de Órdenes' ? // Para la vista de Ordenes
+              (
                     <>
                       <Contador nom_variable={'Sin Revisar: '} numberDevice={numberStatusOrder[0]} typeIcon={iconArray[0]} />
                       <Contador nom_variable={'Revisadas: '} numberDevice={numberStatusOrder[1]} typeIcon={iconArray[1]} />
                       <Contador nom_variable={'Reparadas: '} numberDevice={numberStatusOrder[2]} typeIcon={iconArray[2]} />
                       <Contador nom_variable={'Totales: '} numberDevice={numberOrder} typeIcon={iconArray[3]} />
                     </>
-                  ) : // Para la vista de Inicio
-                  (
-                    <>
+              ) : // Para la vista de Inicio
+              (
+                <>
                       <Contador nom_variable={'Tickets Totales: '} numberDevice={numberTicket} typeIcon={iconArray[0]} />
                       <Contador nom_variable={'Órdenes Totales: '} numberDevice={numberOrder} typeIcon={iconArray[0]} />
                       <Contador nom_variable={'Equipos Totales: '} numberDevice={numberDevice} typeIcon={iconArray[0]} />
                       <Contador nom_variable={'Clientes Totales: '} numberDevice={numberOfUsers} typeIcon={iconArray[0]} />
-                    </>
-                  )
+                </>
+              )
             }
           </div>
         </section>
-
+            {/* Vista de la tablas */}
         {view === 'General' ? // Vista General
           (
             <section>
@@ -88,12 +90,14 @@ function Main({ totalTicketByStatus, numberTicket, view, numberOrder, numberStat
                 <TableOrder order={order} />
               </div>
             </section>
-          ): view === 'de Usuarios' ? // Tabla de Órdenes
+            
+          ): view === 'de Usuarios' ? // Tabla de Usuarios
           (
             <section>
               <div className="block-grid">
-                <TableUser user={user} />
+                <TableUser user={user} deleteUserPage = {deleteUserPage}/>
               </div>
+              <FormUser registerUsersPage ={registerUsersPage} />
             </section>
           ):
           (

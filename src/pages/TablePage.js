@@ -10,7 +10,7 @@ import {
 } from '../services/DeviceService';
 import { numberOfTicketsService, numberOfTicketByStatusService,getTicketService } from '../services/TicketService';
 import { numberOfOrdersService,getOrderService, registerOrderService, numberOfOrdersByStatusService } from '../services/OrderService';
-import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService,findAllUsersService } from '../services/UserService';
+import { UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService,findAllUsersService, registerUsersService, deleteUserService } from '../services/UserService';
 import "../css/PageTable.css"
 
 const TablePage = () => {
@@ -48,8 +48,10 @@ const TablePage = () => {
     const [totalByRole, setTotalByRole] = useState([]);
     // USER: useState para N° de usuarios totales
     const [numberOfUsers, setNumberOfUsers] = useState(0);
-    // USER: useState para guardar a los Usuarios registrados
+    // USER: useState usado para mostrar los Usuarios registrados
     const [user, setUser] = useState({});
+    // USER: useState usado para registrar usuarios
+    const [userRegister, setUserRegister] = useState({});
     //--------------------------------------------
     // Funciones para los Devices
     //--------------------------------------------
@@ -68,6 +70,8 @@ const TablePage = () => {
         getTicketPage();
         getOrderPage();
         findAllUsersPage();
+        registerUsersPage();
+        deleteUserPage();
     }
 
     // DEVICE: Función retorna "CANTIDAD" de equipos totales
@@ -85,7 +89,7 @@ const TablePage = () => {
         setTotalByUser(await numberOfDevicesByUsernameService(username));
         console.log('cantidad de dispositivos por nombrePage ' + totalByUser);
     }
-    // DEVICE: Función para ingresar/registrar Equipo a la BD
+    // DEVICE: Función para Registrar Equipo a la BD
     const deviceRegisterPage = async (device) => {
         await deviceRegisterService(device);
         deviceFindAllPage();
@@ -165,7 +169,28 @@ const TablePage = () => {
         setUser(await findAllUsersService());
         console.log('UsuariosRegistradosPage: ' + user);
     }
-
+    //USER de prueba
+    // const userPrueba = {
+    //     "rut": "88888888-2",
+    //     "username": "888",
+    //     "userPassword": "888",
+    //     "email": "888@gmail.cl",
+    //     "address": "Santiago - Centro",
+    //     "userStatus": true,
+    //     "phone": "+56949852412",
+    //     "fkIdRole": 1
+    // }
+    // USER: Función usada para registrar usuarios
+    const registerUsersPage = async (userRegister) => {
+        await registerUsersService(userRegister);
+        findAllUsersPage();
+        console.log('userRegister: ' + userRegister);
+    }
+    // USER: Función que se usa para eliminar usuarios
+    const deleteUserPage = async (id) => {
+        await deleteUserService(id);
+        findAllUsersPage();
+    }
     /* UseEffect:
      Se activa cuando se recarga la página o
      cambia el valor de alguna variable dentro de los []   
@@ -194,6 +219,7 @@ const TablePage = () => {
                 device = {device} username={username} setUsername={setUsername}  
                 numberOfUsers = {numberOfUsers} numberOfDevicesByUsernamePage={numberOfDevicesByUsernamePage} 
                 findAllDevicesByUsernamePage={findAllDevicesByUsernamePage} user={user} totalByRole = {totalByRole}
+                registerUsersPage = {registerUsersPage} deleteUserPage = {deleteUserPage}
 
             />
         </div>

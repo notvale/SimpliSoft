@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/table.css"
 
-const TableUser = ({ user, deviceDeletePage }) => { //usamos el mismo promp que es TablePage 
+const TableUser = ({ user, deleteUserPage }) => { //usamos el mismo promp que es TablePage 
 
     return (
         <div id="main-container">
@@ -14,7 +14,7 @@ const TableUser = ({ user, deviceDeletePage }) => { //usamos el mismo promp que 
                         {/* <th>Contraseña</th> */}
                         <th>Email</th>
                         <th>Dirección</th>
-                        <th>Estatus</th>
+                        {/* <th>Estatus</th> */}
                         <th>Teléfono</th>
                         <th>Role</th>
                         <th>Acción</th>
@@ -29,13 +29,13 @@ const TableUser = ({ user, deviceDeletePage }) => { //usamos el mismo promp que 
                             {/* <td>{e.userPassword}</td> */}
                             <td>{e.email}</td>
                             <td>{e.address}</td>
-                            <td>{e.userStatus}</td>
+                            {/* <td>{e.userStatus}</td> */}
                             <td>{e.phone}</td>
                             <td>{e.fkIdRole}</td>
 
                             <td>
                                 <button type="button" class="btn btn-warning">Editar</button>
-                                <button type="button" class="btn btn-danger" onClick={() =>deviceDeletePage(e.idDevice)}>Eliminar</button>
+                                <button type="button" class="btn btn-danger" onClick={() =>deleteUserPage(e.idUser)}>Eliminar</button>
                             </td>
                         </tr>
                     ))}

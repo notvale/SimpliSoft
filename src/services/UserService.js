@@ -1,6 +1,7 @@
 import axios from "axios"; // Se importa para poder consumir APIs
 const baseURL = 'http://localhost:8080/auth';
 
+// Array que contiene todos los Roles de los usuarios
 const roleOfUsers = ['Administrador', 'Tecnico', 'Cliente'];
 
 // 1- GET: Retorna los usuarios segun Rol
@@ -37,4 +38,19 @@ const findAllUsersService = async () => {
     return rest.data;   
 } 
 
-export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService, findAllUsersService};
+// 5- POST: Registrar usuarios
+const registerUsersService = async (user) =>{
+    const rest = await axios.post(baseURL + '/register', user);
+    console.log('registroUser: '+ rest);
+    return rest.data;
+} 
+
+// 6- DELETE: Borrar usuarios
+const deleteUserService = async (id) =>{
+    const rest = await axios.delete(baseURL + '/delete/'+ id);
+    return rest.data;   
+}
+
+
+
+export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService, findAllUsersService, registerUsersService, deleteUserService};
