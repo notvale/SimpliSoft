@@ -9,7 +9,7 @@ const TableUser = ({ user, deleteUserPage }) => { //usamos el mismo promp que es
                 <thead>
                     <tr>
                         <th>Id </th>
-                        <th>RUT</th>
+                        <th>RUT</th> 
                         <th>Nombre</th>
                         {/* <th>Contraseña</th> */}
                         <th>Email</th>
