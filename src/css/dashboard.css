@@ -226,8 +226,8 @@ header {
     font-size: 1rem;
 }
 
-main {
-    padding-top: 2.5rem;
+.mainDashboard {
+    /* padding-top: 2.5rem; */
     padding-bottom: 2.5rem;
     padding-left: 20rem;
     padding-right: 4rem;

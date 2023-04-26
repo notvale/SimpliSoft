@@ -2,7 +2,7 @@ import axios from "axios"; // Se importa para poder consumir APIs
 const baseURL = 'http://localhost:8080';
 
 
-// 1- GET: Retorna cantidad de tickets totales
+// 1- GET: Retorna cantidad de tickets totales --> (OK)
 const numberOfTicketsService = async () => {
     const rest = await axios.get(baseURL + '/ticket/total');
     console.log("cantidad de Tickets");
@@ -15,7 +15,7 @@ const statusTickets = {
     2: 'Abierto',
     3: 'Pausado'
 }
-// 2- GET: Retorna cantidad de tickets por status
+// 2- GET: Retorna cantidad de tickets por status --> (OK)
 const numberOfTicketByStatusService = async (status) => {
     const statusArray = [];
 
@@ -29,7 +29,7 @@ const numberOfTicketByStatusService = async (status) => {
     }
     return statusArray;
 }
-// 3- GET: Retorna los Tickets registrados
+// 3- GET: Retorna los Tickets registrados --> (OK)
 const  getTicketService = async () => {
     const rest = await axios.get(baseURL + '/ticket/findAll');
     console.log("Tickets: " + rest);

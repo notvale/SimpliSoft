@@ -4,8 +4,8 @@ import logo from '../images/logo.png';
 
 function Sidebar({ view, setView }) {
 
-  const handleClick = (clic) => {
-   
+  //Función que asigna el valor a view cuando se hace clic en el menu lateral
+  const handleClick = (clic) => {  
     // event.preventDefault(); // Evita la recarga de la página
     setView(clic);
     console.log('Enlace clicado! ' + view);

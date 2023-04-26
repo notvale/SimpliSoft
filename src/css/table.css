@@ -13,11 +13,11 @@ table{
 
 th,td {
     padding: 5px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 thead{
-    background-color: rgb(255, 108, 3);
+    background-color: #ff6f1d;
     border-bottom: solid 5px;
     /* position: fixed;
     left: 200px;
