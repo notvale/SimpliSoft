@@ -50,7 +50,4 @@ const deleteUserService = async (id) =>{
     const rest = await axios.delete(baseURL + '/delete/'+ id);
     return rest.data;   
 }
-
-
-
 export {UserstByRoleService, numberOfUsersService, numberOfUserstByRoleService, findAllUsersService, registerUsersService, deleteUserService};
